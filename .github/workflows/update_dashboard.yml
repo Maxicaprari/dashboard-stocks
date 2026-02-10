@@ -1,0 +1,40 @@
+name: Actualizar Dashboard de Acciones
+
+on:
+  schedule:
+    # Corre de lunes a viernes: 14:00, 17:00 y 21:00 UTC
+    # Equivale a 11:00, 14:00 y 18:00 hora Argentina (UTC-3)
+    # Ajustá los horarios según tu zona horaria y mercado de interés
+    - cron: '0 14 * * 1-5'
+    - cron: '0 17 * * 1-5'
+    - cron: '0 21 * * 1-5'
+  workflow_dispatch:
+    # Permite ejecutarlo manualmente desde la pestaña Actions en GitHub
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+
+      - name: Generar dashboard
+        run: python generate_dashboard.py
+
+      - name: Commitear y pushear index.html actualizado
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          # Solo commitea si hubo cambios
+          git diff --staged --quiet || git commit -m "Dashboard actualizado: $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git push
