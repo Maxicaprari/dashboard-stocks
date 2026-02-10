@@ -1,9 +1,5 @@
-# ============================================================
-# DASHBOARD DE ANÁLISIS DE ACCIONES
-# Versión para GitHub Actions — genera index.html
-# ============================================================
 
-from tvscreener import StockScreener, StockField
+from tvscreener import StockScreener, StockField, IndexSymbol
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
@@ -17,11 +13,9 @@ import warnings
 import os
 warnings.filterwarnings('ignore')
 
-# ============================================================
-# 1. OBTENCIÓN DE DATOS
-# ============================================================
 
 ss = StockScreener()
+ss.set_index(IndexSymbol.SP500) 
 ss.select(
     StockField.NAME,
     StockField.PRICE,
@@ -43,9 +37,6 @@ for c in df.columns:
         vol_col = c
         break
 
-# ============================================================
-# 2. CÁLCULOS DERIVADOS
-# ============================================================
 
 total_stocks  = len(df)
 advances      = len(df[df['Change %'] > 0])
@@ -148,9 +139,6 @@ def build_summary():
 
 executive_summary = build_summary()
 
-# ============================================================
-# 3. GRÁFICOS
-# ============================================================
 
 PALETTE_POS  = "#3b82f6"
 PALETTE_NEG  = "#f97316"
@@ -297,9 +285,7 @@ if has_volume_data:
     img_volume = fig_to_base64(fig4)
     plt.close(fig4)
 
-# ============================================================
-# 4. HELPERS HTML
-# ============================================================
+
 
 def df_to_html_table(data, table_id):
     return data.to_html(classes='data-table', table_id=table_id, escape=False, index=False)
@@ -341,9 +327,7 @@ if has_volume_data and img_volume:
     </section>
     """
 
-# ============================================================
-# 5. HTML FINAL
-# ============================================================
+
 
 now_str  = datetime.utcnow().strftime('%Y-%m-%d  %H:%M UTC')
 date_str = datetime.utcnow().strftime('%Y-%m-%d')
@@ -558,9 +542,7 @@ html_content = f"""<!DOCTYPE html>
 </body>
 </html>"""
 
-# ============================================================
-# 6. GUARDAR
-# ============================================================
+
 
 with open('index.html', 'w', encoding='utf-8') as f:
     f.write(html_content)
