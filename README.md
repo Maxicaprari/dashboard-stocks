@@ -44,9 +44,7 @@ Editar `.github/workflows/update_dashboard.yml` y modificar las líneas de cron:
 
 ```yaml
 schedule:
-  - cron: '0 14 * * 1-5'  # 11:00 AM hora Argentina
-  - cron: '0 17 * * 1-5'  # 2:00 PM hora Argentina
-  - cron: '0 21 * * 1-5'  # 6:00 PM hora Argentina
+- cron: '30 14-21 * * 1-5'  # De 11:30 AM a 6:00 PM Argentina (horario de mercado USA)
 ```
 
 Los horarios están en UTC. Para convertir: hora Argentina + 3 horas = UTC.
