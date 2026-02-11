@@ -2,14 +2,8 @@ name: Actualizar Dashboard de Acciones
 
 on:
   schedule:
-    # Corre de lunes a viernes: 14:00, 17:00 y 21:00 UTC
-    # Equivale a 11:00, 14:00 y 18:00 hora Argentina (UTC-3)
-    # Ajustá los horarios según tu zona horaria y mercado de interés
-    - cron: '0 14 * * 1-5'
-    - cron: '0 17 * * 1-5'
-    - cron: '0 21 * * 1-5'
+    - cron: '30 14-21 * * 1-5'  # De 11:30 AM a 6:00 PM Argentina (horario de mercado USA)
   workflow_dispatch:
-    # Permite ejecutarlo manualmente desde la pestaña Actions en GitHub
 
 jobs:
   build:
