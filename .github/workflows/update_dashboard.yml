@@ -2,7 +2,22 @@ name: Actualizar Dashboard de Acciones
 
 on:
   schedule:
-    - cron: '30 14-21 * * 1-5'  # De 11:30 AM a 6:00 PM Argentina (horario de mercado USA)
+    - cron: '0 14 * * 1-5'
+    - cron: '30 14 * * 1-5'
+    - cron: '0 15 * * 1-5'
+    - cron: '30 15 * * 1-5'
+    - cron: '0 16 * * 1-5'
+    - cron: '30 16 * * 1-5'
+    - cron: '0 17 * * 1-5'
+    - cron: '30 17 * * 1-5'
+    - cron: '0 18 * * 1-5'
+    - cron: '30 18 * * 1-5'
+    - cron: '0 19 * * 1-5'
+    - cron: '30 19 * * 1-5'
+    - cron: '0 20 * * 1-5'
+    - cron: '30 20 * * 1-5'
+    - cron: '0 21 * * 1-5'
+    - cron: '30 21 * * 1-5'
   workflow_dispatch:
 
 jobs:
@@ -29,6 +44,5 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add index.html
-          # Solo commitea si hubo cambios
           git diff --staged --quiet || git commit -m "Dashboard actualizado: $(date -u '+%Y-%m-%d %H:%M UTC')"
           git push
