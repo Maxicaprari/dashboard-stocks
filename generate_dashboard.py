@@ -163,7 +163,7 @@ fig_heatmap = go.Figure(data=go.Heatmap(
     textfont=dict(size=9, family="monospace", color="white"),
     colorscale='RdYlGn',
     zmid=0,
-    colorbar=dict(title="Cambio %", titleside="right"),
+    colorbar=dict(title=dict(text="Cambio %", side="right")),
     showscale=True
 ))
 
