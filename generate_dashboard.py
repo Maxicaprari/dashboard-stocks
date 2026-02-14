@@ -1,21 +1,15 @@
-
 from tvscreener import StockScreener, StockField, IndexSymbol
 import pandas as pd
-import matplotlib.pyplot as plt
-import matplotlib.patches as mpatches
-import matplotlib
-matplotlib.use('Agg')
 import numpy as np
-import base64
-from io import BytesIO
 from datetime import datetime
 import warnings
-import os
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+
 warnings.filterwarnings('ignore')
 
-
 ss = StockScreener()
-ss.set_index(IndexSymbol.SP500) 
+ss.set_index(IndexSymbol.SP500)
 ss.select(
     StockField.NAME,
     StockField.PRICE,
@@ -30,13 +24,11 @@ ss.set_range(0, 500)
 df = ss.get()
 df = df.dropna(subset=['Change %'])
 
-# Detectar el nombre real de la columna de volumen promedio
 vol_col = None
 for c in df.columns:
     if 'average' in c.lower() and 'volume' in c.lower():
         vol_col = c
         break
-
 
 total_stocks  = len(df)
 advances      = len(df[df['Change %'] > 0])
@@ -50,7 +42,6 @@ std_change    = df['Change %'].std()
 top_gainers = df.nlargest(20, 'Change %')[['Name', 'Sector', 'Industry', 'Change %', 'Price', 'Volume']].copy()
 top_losers  = df.nsmallest(20, 'Change %')[['Name', 'Sector', 'Industry', 'Change %', 'Price', 'Volume']].copy()
 
-# Outliers por volumen
 has_volume_data  = False
 volume_outliers  = pd.DataFrame()
 
@@ -69,7 +60,6 @@ if vol_col:
     if not volume_outliers.empty:
         has_volume_data = True
 
-# Promedios por sector
 sector_stats = df.groupby('Sector').agg(
     avg_change=('Change %', 'mean'),
     count=('Change %', 'count'),
@@ -78,7 +68,6 @@ sector_stats = df.groupby('Sector').agg(
 ).reset_index()
 sector_stats = sector_stats[sector_stats['count'] >= 3].sort_values('avg_change', ascending=False)
 
-# Sentimiento
 if ad_ratio >= 2.0 and avg_change >= 0.5:
     market_sentiment = "Alcista amplio"
     sentiment_color  = "#22c55e"
@@ -139,153 +128,262 @@ def build_summary():
 
 executive_summary = build_summary()
 
-
 PALETTE_POS  = "#3b82f6"
 PALETTE_NEG  = "#f97316"
 PALETTE_NEUT = "#94a3b8"
-BG           = "#f8fafc"
 
-def fig_to_base64(fig):
-    buf = BytesIO()
-    fig.savefig(buf, format='png', dpi=110, bbox_inches='tight', facecolor=fig.get_facecolor())
-    buf.seek(0)
-    img_b64 = base64.b64encode(buf.read()).decode('utf-8')
-    buf.close()
-    return img_b64
+n = len(sector_stats)
+cols_grid = min(n, 6)
+rows_grid = int(np.ceil(n / cols_grid))
 
-# Gráfico 1: Top Ganadores / Perdedores
-fig1, axes1 = plt.subplots(1, 2, figsize=(18, 8), facecolor=BG)
-for ax, data, title in [
-    (axes1[0], top_gainers, 'Top 20 Ganadores'),
-    (axes1[1], top_losers,  'Top 20 Perdedores'),
-]:
-    colores = [PALETTE_POS if v > 0 else PALETTE_NEG for v in data['Change %']]
-    ax.barh(range(len(data)), data['Change %'], color=colores, alpha=0.85, edgecolor='none')
-    ax.set_yticks(range(len(data)))
-    ax.set_yticklabels(
-        [f"{row['Name']}  ·  {row['Sector']}" for _, row in data.iterrows()],
-        fontsize=8, fontfamily='monospace'
+z_matrix = np.full((rows_grid, cols_grid), np.nan)
+text_matrix = [['' for _ in range(cols_grid)] for _ in range(rows_grid)]
+hover_matrix = [['' for _ in range(cols_grid)] for _ in range(rows_grid)]
+
+for i, row in sector_stats.reset_index(drop=True).iterrows():
+    col_i = i % cols_grid
+    row_i = i // cols_grid
+    val = row['avg_change']
+    z_matrix[row_i, col_i] = val
+    text_matrix[row_i][col_i] = f"{row['Sector'][:15]}<br>{val:+.2f}% ({int(row['count'])})"
+    hover_matrix[row_i][col_i] = (
+        f"<b>{row['Sector']}</b><br>"
+        f"Cambio promedio: {val:+.2f}%<br>"
+        f"Acciones: {int(row['count'])}<br>"
+        f"Alcistas: {int(row['advances'])}<br>"
+        f"Bajistas: {int(row['declines'])}"
     )
-    ax.set_xlabel('Cambio %', fontsize=10, labelpad=8)
-    ax.set_title(title, fontweight='bold', fontsize=13, pad=12)
-    ax.invert_yaxis()
-    ax.axvline(0, color='#334155', linewidth=0.8)
-    ax.grid(axis='x', alpha=0.2, linestyle='--')
-    ax.set_facecolor(BG)
-    for spine in ax.spines.values():
-        spine.set_visible(False)
-plt.tight_layout(pad=2.5)
-img_movers = fig_to_base64(fig1)
-plt.close(fig1)
 
-# Gráfico 2: Heatmap de sectores
-fig2, ax2 = plt.subplots(figsize=(14, 6), facecolor=BG)
-n       = len(sector_stats)
-cols_hm = min(n, 6)
-rows_hm = int(np.ceil(n / cols_hm))
-vmax    = max(abs(sector_stats['avg_change'].max()), abs(sector_stats['avg_change'].min()))
-cmap    = plt.cm.RdYlGn
-cell_w, cell_h = 1.0, 0.7
+fig_heatmap = go.Figure(data=go.Heatmap(
+    z=z_matrix,
+    text=text_matrix,
+    hovertext=hover_matrix,
+    hoverinfo='text',
+    texttemplate='%{text}',
+    textfont=dict(size=9, family="monospace", color="white"),
+    colorscale='RdYlGn',
+    zmid=0,
+    colorbar=dict(title="Cambio %", titleside="right"),
+    showscale=True
+))
 
-for i, row_s in sector_stats.reset_index(drop=True).iterrows():
-    col_i  = i % cols_hm
-    row_i  = i // cols_hm
-    val    = row_s['avg_change']
-    norm_v = (val + vmax) / (2 * vmax) if vmax != 0 else 0.5
-    color  = cmap(norm_v)
-    rect   = mpatches.FancyBboxPatch(
-        (col_i * (cell_w + 0.08), -(row_i * (cell_h + 0.08))),
-        cell_w, cell_h,
-        boxstyle="round,pad=0.04",
-        facecolor=color, edgecolor='white', linewidth=1.5
-    )
-    ax2.add_patch(rect)
-    cx = col_i * (cell_w + 0.08) + cell_w / 2
-    cy = -(row_i * (cell_h + 0.08)) + cell_h / 2
-    text_color = 'white' if abs(norm_v - 0.5) > 0.2 else '#1e293b'
-    ax2.text(cx, cy + 0.12, row_s['Sector'], ha='center', va='center',
-             fontsize=8, fontweight='bold', color=text_color)
-    ax2.text(cx, cy - 0.12, f"{val:+.2f}%  ({int(row_s['count'])})", ha='center', va='center',
-             fontsize=7.5, color=text_color, alpha=0.9)
+fig_heatmap.update_layout(
+    title="Heatmap de Sectores",
+    xaxis=dict(showticklabels=False, showgrid=False, zeroline=False),
+    yaxis=dict(showticklabels=False, showgrid=False, zeroline=False),
+    height=400,
+    plot_bgcolor='#f8fafc',
+    paper_bgcolor='#f8fafc',
+    font=dict(family="DM Sans, sans-serif"),
+    margin=dict(l=20, r=20, t=60, b=20)
+)
 
-ax2.set_xlim(-0.1, cols_hm * (cell_w + 0.08))
-ax2.set_ylim(-(rows_hm * (cell_h + 0.08)) + 0.05, cell_h + 0.1)
-ax2.axis('off')
-ax2.set_title('Heatmap de Sectores  —  Cambio Promedio del Día', fontweight='bold', fontsize=13, pad=14)
-ax2.set_facecolor(BG)
-sm = plt.cm.ScalarMappable(cmap=cmap, norm=plt.Normalize(vmin=-vmax, vmax=vmax))
-sm.set_array([])
-cbar = fig2.colorbar(sm, ax=ax2, orientation='horizontal', fraction=0.03, pad=0.02, aspect=40)
-cbar.set_label('Cambio promedio %', fontsize=9)
-plt.tight_layout()
-img_heatmap = fig_to_base64(fig2)
-plt.close(fig2)
+html_heatmap = fig_heatmap.to_html(
+    include_plotlyjs='cdn',
+    div_id='heatmap',
+    config={'displayModeBar': True, 'displaylogo': False}
+)
 
-# Gráfico 3: Histograma + Market Breadth
-fig3, (ax3a, ax3b) = plt.subplots(1, 2, figsize=(16, 5), facecolor=BG)
-bins = np.linspace(df['Change %'].quantile(0.01), df['Change %'].quantile(0.99), 45)
-ax3a.hist(df['Change %'], bins=bins, color=PALETTE_POS, alpha=0.75, edgecolor='white', linewidth=0.4)
-ax3a.axvline(avg_change,    color='#1e293b',   linewidth=1.8, linestyle='--', label=f'Media: {avg_change:+.2f}%')
-ax3a.axvline(median_change, color=PALETTE_NEG, linewidth=1.5, linestyle=':',  label=f'Mediana: {median_change:+.2f}%')
-ax3a.axvline(avg_change + std_change, color='#64748b', linewidth=1, linestyle='--', alpha=0.5)
-ax3a.axvline(avg_change - std_change, color='#64748b', linewidth=1, linestyle='--', alpha=0.5, label=f'±1 SD: {std_change:.2f}%')
-ax3a.set_xlabel('Cambio %', fontsize=10)
-ax3a.set_ylabel('Cantidad de acciones', fontsize=10)
-ax3a.set_title('Distribución de Cambios del Día', fontweight='bold', fontsize=13)
-ax3a.legend(fontsize=8)
-ax3a.grid(axis='y', alpha=0.2, linestyle='--')
-ax3a.set_facecolor(BG)
-for spine in ax3a.spines.values():
-    spine.set_visible(False)
+fig_breadth = make_subplots(
+    rows=1, cols=2,
+    subplot_titles=("Distribución de Cambios del Día", "Market Breadth"),
+    specs=[[{"type": "histogram"}, {"type": "bar"}]],
+    horizontal_spacing=0.12
+)
 
-ad_data   = [advances, unchanged, declines]
-ad_colors = [PALETTE_POS, PALETTE_NEUT, PALETTE_NEG]
-ad_labels = [f'Alcistas\n{advances}', f'Sin cambio\n{unchanged}', f'Bajistas\n{declines}']
-left = 0
-for val, col, lbl in zip(ad_data, ad_colors, ad_labels):
-    ax3b.barh(0, val, left=left, color=col, alpha=0.85, height=0.5)
-    if val > 5:
-        ax3b.text(left + val / 2, 0, lbl, ha='center', va='center',
-                  fontsize=9, fontweight='bold', color='white')
-    left += val
-ax3b.set_xlim(0, total_stocks)
-ax3b.set_ylim(-1, 1)
-ax3b.axis('off')
-ax3b.set_title(f'Market Breadth  —  Ratio A/D: {ad_ratio:.2f}', fontweight='bold', fontsize=13)
-ax3b.text(total_stocks / 2, -0.55,
-          f'{advances} suben  ·  {unchanged} sin cambio  ·  {declines} bajan  (universo: {total_stocks})',
-          ha='center', fontsize=8.5, color='#475569')
-ax3b.set_facecolor(BG)
-plt.tight_layout(pad=2)
-img_breadth = fig_to_base64(fig3)
-plt.close(fig3)
+fig_breadth.add_trace(
+    go.Histogram(
+        x=df['Change %'],
+        nbinsx=45,
+        marker_color=PALETTE_POS,
+        opacity=0.75,
+        name='Frecuencia',
+        hovertemplate='Cambio: %{x:.2f}%<br>Cantidad: %{y}<extra></extra>'
+    ),
+    row=1, col=1
+)
 
-# Gráfico 4: Outliers de volumen
-img_volume = None
+fig_breadth.add_vline(
+    x=avg_change,
+    line_dash="dash",
+    line_color="#1e293b",
+    line_width=2,
+    annotation_text=f"Media: {avg_change:+.2f}%",
+    row=1,
+    col=1
+)
+
+fig_breadth.add_vline(
+    x=median_change,
+    line_dash="dot",
+    line_color=PALETTE_NEG,
+    line_width=1.5,
+    row=1,
+    col=1
+)
+
+fig_breadth.add_trace(
+    go.Bar(
+        y=['Market'],
+        x=[advances],
+        orientation='h',
+        marker_color=PALETTE_POS,
+        name=f'Alcistas ({advances})',
+        text=[f'{advances}'],
+        textposition='inside',
+        hovertemplate='Alcistas: %{x}<extra></extra>'
+    ),
+    row=1, col=2
+)
+
+fig_breadth.add_trace(
+    go.Bar(
+        y=['Market'],
+        x=[unchanged],
+        orientation='h',
+        marker_color=PALETTE_NEUT,
+        name=f'Sin cambio ({unchanged})',
+        text=[f'{unchanged}'],
+        textposition='inside',
+        hovertemplate='Sin cambio: %{x}<extra></extra>'
+    ),
+    row=1, col=2
+)
+
+fig_breadth.add_trace(
+    go.Bar(
+        y=['Market'],
+        x=[declines],
+        orientation='h',
+        marker_color=PALETTE_NEG,
+        name=f'Bajistas ({declines})',
+        text=[f'{declines}'],
+        textposition='inside',
+        hovertemplate='Bajistas: %{x}<extra></extra>'
+    ),
+    row=1, col=2
+)
+
+fig_breadth.update_xaxes(title_text="Cambio %", row=1, col=1)
+fig_breadth.update_yaxes(title_text="Cantidad", row=1, col=1)
+fig_breadth.update_xaxes(title_text="", showticklabels=False, row=1, col=2)
+fig_breadth.update_yaxes(title_text="", showticklabels=False, row=1, col=2)
+
+fig_breadth.update_layout(
+    barmode='stack',
+    height=400,
+    showlegend=True,
+    plot_bgcolor='#f8fafc',
+    paper_bgcolor='#f8fafc',
+    font=dict(family="DM Sans, sans-serif"),
+    margin=dict(l=40, r=40, t=60, b=40)
+)
+
+html_breadth = fig_breadth.to_html(
+    include_plotlyjs=False,
+    div_id='breadth',
+    config={'displayModeBar': True, 'displaylogo': False}
+)
+
+fig_movers = make_subplots(
+    rows=1, cols=2,
+    subplot_titles=("Top 20 Ganadores", "Top 20 Perdedores"),
+    specs=[[{"type": "bar"}, {"type": "bar"}]],
+    horizontal_spacing=0.10
+)
+
+colors_gain = [PALETTE_POS if v > 0 else PALETTE_NEG for v in top_gainers['Change %']]
+fig_movers.add_trace(
+    go.Bar(
+        y=[f"{row['Name'][:20]} · {row['Sector']}" for _, row in top_gainers.iterrows()],
+        x=top_gainers['Change %'],
+        orientation='h',
+        marker_color=colors_gain,
+        opacity=0.85,
+        name='Ganadores',
+        hovertemplate='<b>%{y}</b><br>Cambio: %{x:.2f}%<extra></extra>'
+    ),
+    row=1, col=1
+)
+
+colors_loss = [PALETTE_POS if v > 0 else PALETTE_NEG for v in top_losers['Change %']]
+fig_movers.add_trace(
+    go.Bar(
+        y=[f"{row['Name'][:20]} · {row['Sector']}" for _, row in top_losers.iterrows()],
+        x=top_losers['Change %'],
+        orientation='h',
+        marker_color=colors_loss,
+        opacity=0.85,
+        name='Perdedores',
+        hovertemplate='<b>%{y}</b><br>Cambio: %{x:.2f}%<extra></extra>'
+    ),
+    row=1, col=2
+)
+
+fig_movers.add_vline(x=0, line_color="#334155", line_width=0.8, row=1, col=1)
+fig_movers.add_vline(x=0, line_color="#334155", line_width=0.8, row=1, col=2)
+
+fig_movers.update_xaxes(title_text="Cambio %", row=1, col=1)
+fig_movers.update_xaxes(title_text="Cambio %", row=1, col=2)
+fig_movers.update_yaxes(autorange="reversed", row=1, col=1)
+fig_movers.update_yaxes(autorange="reversed", row=1, col=2)
+
+fig_movers.update_layout(
+    height=600,
+    showlegend=False,
+    plot_bgcolor='#f8fafc',
+    paper_bgcolor='#f8fafc',
+    font=dict(family="DM Sans, sans-serif", size=9),
+    margin=dict(l=180, r=180, t=60, b=40)
+)
+
+html_movers = fig_movers.to_html(
+    include_plotlyjs=False,
+    div_id='movers',
+    config={'displayModeBar': True, 'displaylogo': False}
+)
+
+has_volume_chart = False
 if has_volume_data:
-    fig4, ax4 = plt.subplots(figsize=(14, 6), facecolor=BG)
-    colors_vol = [PALETTE_POS if v > 0 else PALETTE_NEG for v in volume_outliers['Change %']]
-    ax4.barh(range(len(volume_outliers)), volume_outliers['Volume Ratio'],
-             color=colors_vol, alpha=0.82, edgecolor='none')
-    ax4.set_yticks(range(len(volume_outliers)))
-    ax4.set_yticklabels(
-        [f"{row['Name']}  ·  {row['Sector']}  ({row['Change %']:+.2f}%)"
-         for _, row in volume_outliers.iterrows()],
-        fontsize=8, fontfamily='monospace'
+    vol_sorted = volume_outliers.sort_values('Volume Ratio', ascending=True)
+    colors_vol = [PALETTE_POS if v > 0 else PALETTE_NEG for v in vol_sorted['Change %']]
+
+    fig_volume = go.Figure()
+
+    fig_volume.add_trace(go.Bar(
+        y=[f"{row['Name'][:25]} · {row['Sector']} ({row['Change %']:+.2f}%)" for _, row in vol_sorted.iterrows()],
+        x=vol_sorted['Volume Ratio'],
+        orientation='h',
+        marker_color=colors_vol,
+        opacity=0.85,
+        hovertemplate='<b>%{y}</b><br>Vol Ratio: %{x:.2f}x<br>Cambio: %{customdata:.2f}%<extra></extra>',
+        customdata=vol_sorted['Change %']
+    ))
+
+    fig_volume.add_vline(
+        x=2.0, line_dash="dash", line_color="#475569", line_width=1,
+        annotation_text="Umbral 2x"
     )
-    ax4.axvline(2, color='#475569', linewidth=1, linestyle='--', alpha=0.6)
-    ax4.set_xlabel('Ratio Volumen / Promedio 30 ruedas', fontsize=10)
-    ax4.set_title('Acciones con Volumen Inusual (≥ 2x promedio 30 ruedas)', fontweight='bold', fontsize=13)
-    ax4.invert_yaxis()
-    ax4.grid(axis='x', alpha=0.2, linestyle='--')
-    ax4.set_facecolor(BG)
-    for spine in ax4.spines.values():
-        spine.set_visible(False)
-    plt.tight_layout()
-    img_volume = fig_to_base64(fig4)
-    plt.close(fig4)
 
+    fig_volume.update_layout(
+        title="Acciones con Volumen Inusual",
+        xaxis_title="Ratio Volumen / Promedio 30 ruedas",
+        height=500,
+        plot_bgcolor='#f8fafc',
+        paper_bgcolor='#f8fafc',
+        font=dict(family="DM Sans, sans-serif", size=9),
+        margin=dict(l=300, r=40, t=60, b=40),
+        showlegend=False
+    )
 
+    fig_volume.update_yaxes(autorange="reversed")
+
+    html_volume = fig_volume.to_html(
+        include_plotlyjs=False,
+        div_id='volume',
+        config={'displayModeBar': True, 'displaylogo': False}
+    )
+    has_volume_chart = True
 
 def df_to_html_table(data, table_id):
     return data.to_html(classes='data-table', table_id=table_id, escape=False, index=False)
@@ -298,36 +396,31 @@ def format_change(val):
     except:
         return val
 
-for col_df in [top_gainers, top_losers]:
-    col_df['Change %'] = col_df['Change %'].apply(format_change)
-
-if has_volume_data:
-    volume_outliers['Change %'] = volume_outliers['Change %'].apply(format_change)
+top_gainers_html = top_gainers.copy()
+top_losers_html = top_losers.copy()
+top_gainers_html['Change %'] = top_gainers_html['Change %'].apply(format_change)
+top_losers_html['Change %'] = top_losers_html['Change %'].apply(format_change)
 
 volume_section = ""
-if has_volume_data and img_volume:
-    volume_table  = df_to_html_table(volume_outliers, 'volume-outliers')
+if has_volume_chart:
+    vol_outliers_html = volume_outliers.copy()
+    vol_outliers_html['Change %'] = vol_outliers_html['Change %'].apply(format_change)
     volume_section = f"""
     <section class="card full-width">
       <div class="card-header">
         <span class="card-title">Acciones con Volumen Inusual</span>
-        <span class="badge">≥ 2x promedio 30 ruedas</span>
+        <span class="badge">interactivo</span>
       </div>
       <div class="chart-wrap">
-        <img src="data:image/png;base64,{img_volume}" alt="Volumen inusual">
+        {html_volume}
       </div>
-      <div class="table-scroll">{volume_table}</div>
+      <div class="table-scroll">{df_to_html_table(vol_outliers_html, 'volume-outliers')}</div>
       <div class="explainer">
-        <strong>Qué muestra:</strong> Acciones cuyo volumen del día supera al menos el doble
-        de su promedio de las últimas 30 ruedas. Lecturas elevadas de este ratio (3x, 5x o más)
-        suelen preceder movimientos de precio importantes o confirmar rupturas técnicas.
-        El color de la barra indica si el instrumento sube (azul) o baja (naranja) en la jornada,
-        lo que permite leer si el volumen acompaña una presión compradora o vendedora.
+        Acciones cuyo volumen del día supera al menos el doble de su promedio de las últimas 30 ruedas.
+        Lecturas elevadas suelen preceder movimientos importantes o confirmar rupturas técnicas.
       </div>
     </section>
     """
-
-
 
 now_str  = datetime.utcnow().strftime('%Y-%m-%d  %H:%M UTC')
 date_str = datetime.utcnow().strftime('%Y-%m-%d')
@@ -343,105 +436,93 @@ html_content = f"""<!DOCTYPE html>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {{
-      --bg:        #f1f5f9;
-      --surface:   #ffffff;
-      --border:    #e2e8f0;
-      --text-main: #0f172a;
-      --text-muted:#64748b;
-      --blue:      #3b82f6;
-      --orange:    #f97316;
-      --green:     #22c55e;
-      --red:       #ef4444;
-      --slate:     #94a3b8;
+      --bg:#f1f5f9;--surface:#fff;--border:#e2e8f0;--text-main:#0f172a;--text-muted:#64748b;
+      --blue:#3b82f6;--orange:#f97316;--green:#22c55e;--red:#ef4444;--slate:#94a3b8;
     }}
-    *, *::before, *::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
-    body {{
-      font-family: 'DM Sans', sans-serif;
-      background: var(--bg);
-      color: var(--text-main);
-      padding: 28px 20px 60px;
-      line-height: 1.6;
-    }}
-    .page-wrap {{ max-width: 1380px; margin: 0 auto; }}
-    .page-header {{
-      display: flex; justify-content: space-between; align-items: flex-end;
-      margin-bottom: 32px; padding-bottom: 20px; border-bottom: 2px solid var(--border);
-    }}
-    .page-header h1 {{ font-size: 1.9rem; font-weight: 600; letter-spacing: -0.03em; }}
-    .page-header h1 span {{ color: var(--blue); }}
-    .meta {{ font-size: 0.82rem; color: var(--text-muted); font-family: 'DM Mono', monospace; text-align: right; }}
-    .sentiment-banner {{
-      display: flex; align-items: center; gap: 14px;
-      background: var(--surface); border: 1px solid var(--border);
-      border-left: 5px solid {sentiment_color};
-      border-radius: 10px; padding: 16px 22px; margin-bottom: 28px;
-    }}
-    .sentiment-label {{ font-weight: 600; font-size: 1rem; color: {sentiment_color}; white-space: nowrap; }}
-    .sentiment-text {{ color: var(--text-muted); font-size: 0.87rem; }}
-    .kpi-strip {{
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-      gap: 14px; margin-bottom: 28px;
-    }}
-    .kpi {{ background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; }}
-    .kpi-label {{ font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin-bottom: 6px; }}
-    .kpi-value {{ font-size: 1.7rem; font-weight: 600; font-family: 'DM Mono', monospace; }}
-    .kpi-value.pos {{ color: var(--blue); }}
-    .kpi-value.neg {{ color: var(--orange); }}
-    .kpi-value.neu {{ color: var(--text-main); }}
-    .grid-2 {{ display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-bottom: 22px; }}
-    .full-width {{ margin-bottom: 22px; }}
-    .card {{ background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }}
-    .card-header {{
-      display: flex; align-items: center; gap: 10px;
-      padding: 18px 22px 12px; border-bottom: 1px solid var(--border);
-    }}
-    .card-title {{ font-size: 1rem; font-weight: 600; }}
-    .badge {{
-      margin-left: auto; font-size: 0.72rem; font-family: 'DM Mono', monospace;
-      background: #eff6ff; color: var(--blue); border: 1px solid #bfdbfe;
-      border-radius: 99px; padding: 2px 10px;
-    }}
-    .chart-wrap {{ padding: 18px 18px 10px; }}
-    .chart-wrap img {{ width: 100%; height: auto; border-radius: 6px; display: block; }}
-    .explainer {{
-      font-size: 0.83rem; color: var(--text-muted);
-      padding: 12px 22px 18px; border-top: 1px dashed var(--border); line-height: 1.65;
-    }}
-    .explainer strong {{ color: var(--text-main); }}
-    .summary-card {{
-      background: #f8fafc; border: 1px solid var(--border); border-left: 4px solid var(--blue);
-      border-radius: 10px; padding: 20px 24px; margin-bottom: 28px;
-      font-size: 0.9rem; line-height: 1.75; color: #334155;
-    }}
-    .summary-title {{
-      font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.07em;
-      color: var(--blue); font-weight: 600; margin-bottom: 10px;
-    }}
-    .table-scroll {{ overflow-x: auto; padding: 0 18px 18px; }}
-    .data-table {{ width: 100%; border-collapse: collapse; font-size: 0.83rem; font-family: 'DM Mono', monospace; }}
-    .data-table th {{
-      background: #f1f5f9; color: var(--text-muted); font-size: 0.72rem;
-      text-transform: uppercase; letter-spacing: 0.05em; padding: 10px 12px;
-      text-align: left; border-bottom: 1px solid var(--border); white-space: nowrap;
-    }}
-    .data-table td {{ padding: 9px 12px; border-bottom: 1px solid #f1f5f9; white-space: nowrap; }}
-    .data-table tr:last-child td {{ border-bottom: none; }}
-    .data-table tr:hover td {{ background: #f8fafc; }}
-    .positive {{ color: var(--blue); font-weight: 600; }}
-    .negative {{ color: var(--orange); font-weight: 600; }}
-    .page-footer {{
-      text-align: center; margin-top: 48px; font-size: 0.78rem;
-      color: var(--slate); font-family: 'DM Mono', monospace;
-    }}
-    @media (max-width: 860px) {{
-      .grid-2 {{ grid-template-columns: 1fr; }}
-      .page-header {{ flex-direction: column; align-items: flex-start; gap: 8px; }}
-    }}
+    *,*::before,*::after{{box-sizing:border-box;margin:0;padding:0;}}
+    body{{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text-main);padding:28px 20px 60px;line-height:1.6;}}
+    .page-wrap{{max-width:1380px;margin:0 auto;}}
+    .page-header{{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:32px;padding-bottom:20px;border-bottom:2px solid var(--border);}}
+    .page-header h1{{font-size:1.9rem;font-weight:600;letter-spacing:-0.03em;}}
+    .page-header h1 span{{color:var(--blue);}}
+    .meta{{font-size:0.82rem;color:var(--text-muted);font-family:'DM Mono',monospace;text-align:right;}}
+    .sentiment-banner{{display:flex;align-items:center;gap:14px;background:var(--surface);border:1px solid var(--border);border-left:5px solid {sentiment_color};border-radius:10px;padding:16px 22px;margin-bottom:28px;}}
+    .sentiment-label{{font-weight:600;font-size:1rem;color:{sentiment_color};white-space:nowrap;}}
+    .sentiment-text{{color:var(--text-muted);font-size:0.87rem;}}
+    .kpi-strip{{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-bottom:28px;}}
+    .kpi{{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px 20px;}}
+    .kpi-label{{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);margin-bottom:6px;}}
+    .kpi-value{{font-size:1.7rem;font-weight:600;font-family:'DM Mono',monospace;}}
+    .kpi-value.pos{{color:var(--blue);}}
+    .kpi-value.neg{{color:var(--orange);}}
+    .kpi-value.neu{{color:var(--text-main);}}
+    .grid-2{{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:22px;}}
+    .full-width{{margin-bottom:22px;}}
+    .card{{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;}}
+    .card-header{{display:flex;align-items:center;gap:10px;padding:18px 22px 12px;border-bottom:1px solid var(--border);}}
+    .card-title{{font-size:1rem;font-weight:600;}}
+    .badge{{margin-left:auto;font-size:0.72rem;font-family:'DM Mono',monospace;background:#eff6ff;color:var(--blue);border:1px solid #bfdbfe;border-radius:99px;padding:2px 10px;}}
+    .chart-wrap{{padding:18px 18px 10px;}}
+    .explainer{{font-size:0.83rem;color:var(--text-muted);padding:12px 22px 18px;border-top:1px dashed var(--border);line-height:1.65;}}
+    .summary-card{{background:#f8fafc;border:1px solid var(--border);border-left:4px solid var(--blue);border-radius:10px;padding:20px 24px;margin-bottom:28px;font-size:0.9rem;line-height:1.75;color:#334155;}}
+    .summary-title{{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.07em;color:var(--blue);font-weight:600;margin-bottom:10px;}}
+    .table-scroll{{overflow-x:auto;padding:0 18px 18px;}}
+    .data-table{{width:100%;border-collapse:collapse;font-size:0.83rem;font-family:'DM Mono',monospace;}}
+    .data-table th{{background:#f1f5f9;color:var(--text-muted);font-size:0.72rem;text-transform:uppercase;letter-spacing:0.05em;padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);white-space:nowrap;cursor:pointer;user-select:none;}}
+    .data-table td{{padding:9px 12px;border-bottom:1px solid #f1f5f9;white-space:nowrap;}}
+    .data-table tr:last-child td{{border-bottom:none;}}
+    .data-table tr:hover td{{background:#f8fafc;}}
+    .positive{{color:var(--blue);font-weight:600;}}
+    .negative{{color:var(--orange);font-weight:600;}}
+    .page-footer{{text-align:center;margin-top:48px;font-size:0.78rem;color:var(--slate);font-family:'DM Mono',monospace;}}
+    @media (max-width:860px){{.grid-2{{grid-template-columns:1fr;}}.page-header{{flex-direction:column;align-items:flex-start;gap:8px;}}}}
   </style>
 </head>
 <body>
-<div class="page-wrap">
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {{
+  const tables = document.querySelectorAll('.data-table');
+  tables.forEach(table => {{
+    const headers = table.querySelectorAll('th');
+    const tbody = table.querySelector('tbody');
+    headers.forEach((header, index) => {{
+      const arrow = document.createElement('span');
+      arrow.style.marginLeft = '6px';
+      arrow.style.opacity = '0.3';
+      arrow.innerHTML = '⇅';
+      header.appendChild(arrow);
+      let ascending = true;
+      header.addEventListener('click', () => {{
+        const rows = Array.from(tbody.querySelectorAll('tr'));
+        rows.sort((a, b) => {{
+          const aCell = a.cells[index].textContent.trim();
+          const bCell = b.cells[index].textContent.trim();
+          const aNum = parseFloat(aCell.replace(/[^0-9.-]/g, ''));
+          const bNum = parseFloat(bCell.replace(/[^0-9.-]/g, ''));
+          let comparison = 0;
+          if (!isNaN(aNum) && !isNaN(bNum)) {{
+            comparison = aNum - bNum;
+          }} else {{
+            comparison = aCell.localeCompare(bCell);
+          }}
+          return ascending ? comparison : -comparison;
+        }});
+        headers.forEach(h => {{
+          const arr = h.querySelector('span');
+          if (arr) arr.innerHTML = '⇅';
+        }});
+        arrow.innerHTML = ascending ? '▲' : '▼';
+        arrow.style.opacity = '1';
+        ascending = !ascending;
+        rows.forEach(row => tbody.appendChild(row));
+      }});
+    }});
+  }});
+}});
+</script>
+
+<div class="page-wrap">
   <header class="page-header">
     <h1>Dashboard de <span>Análisis de Acciones</span></h1>
     <div class="meta">Universo: {total_stocks} instrumentos<br>Actualizado: {now_str}</div>
@@ -474,77 +555,54 @@ html_content = f"""<!DOCTYPE html>
 
   <div class="grid-2">
     <section class="card">
-      <div class="card-header"><span class="card-title">Top 20 Ganadores</span><span class="badge">por % cambio</span></div>
-      <div class="table-scroll">{df_to_html_table(top_gainers, 'gainers')}</div>
-      <div class="explainer">
-        <strong>Qué muestra:</strong> Las 20 acciones con mayor subida porcentual en la jornada.
-        La columna Sector permite identificar si la suba es puntual o responde a una dinámica
-        sectorial más amplia. Útil para detectar catalizadores específicos (resultados, noticias)
-        o rotaciones en curso.
-      </div>
+      <div class="card-header"><span class="card-title">Top 20 Ganadores</span><span class="badge">ordenable</span></div>
+      <div class="table-scroll">{df_to_html_table(top_gainers_html, 'gainers')}</div>
+      <div class="explainer">Las 20 acciones con mayor suba. Click en los encabezados para ordenar.</div>
     </section>
     <section class="card">
-      <div class="card-header"><span class="card-title">Top 20 Perdedores</span><span class="badge">por % cambio</span></div>
-      <div class="table-scroll">{df_to_html_table(top_losers, 'losers')}</div>
-      <div class="explainer">
-        <strong>Qué muestra:</strong> Las 20 acciones con mayor caída porcentual en la jornada.
-        Analizar si los perdedores pertenecen al mismo sector ayuda a distinguir entre un evento
-        idiosincrático (un solo nombre) y una presión vendedora sistémica sobre una industria
-        o sector determinado.
-      </div>
+      <div class="card-header"><span class="card-title">Top 20 Perdedores</span><span class="badge">ordenable</span></div>
+      <div class="table-scroll">{df_to_html_table(top_losers_html, 'losers')}</div>
+      <div class="explainer">Las 20 acciones con mayor caída. Click en los encabezados para ordenar.</div>
     </section>
   </div>
 
   <section class="card full-width">
-    <div class="card-header"><span class="card-title">Heatmap de Sectores</span><span class="badge">cambio promedio del día</span></div>
-    <div class="chart-wrap"><img src="data:image/png;base64,{img_heatmap}" alt="Heatmap sectores"></div>
+    <div class="card-header"><span class="card-title">Heatmap de Sectores</span><span class="badge">interactivo</span></div>
+    <div class="chart-wrap">{html_heatmap}</div>
     <div class="explainer">
-      <strong>Qué muestra:</strong> Cada celda representa un sector del mercado coloreado según
-      su cambio porcentual promedio en el día: verde indica apreciación, rojo deterioro.
-      El número entre paréntesis es la cantidad de acciones del universo en ese sector.
-      Permite identificar de un vistazo rotaciones y flujo de capital intra-día.
+      Cada celda representa un sector coloreado según el cambio promedio del día.
+      Pasá el cursor para ver detalles completos.
     </div>
   </section>
 
   <section class="card full-width">
-    <div class="card-header"><span class="card-title">Distribución de Cambios y Market Breadth</span><span class="badge">universo completo</span></div>
-    <div class="chart-wrap"><img src="data:image/png;base64,{img_breadth}" alt="Distribución y breadth"></div>
+    <div class="card-header"><span class="card-title">Distribución de Cambios y Market Breadth</span><span class="badge">interactivo</span></div>
+    <div class="chart-wrap">{html_breadth}</div>
     <div class="explainer">
-      <strong>Histograma (izquierda):</strong> Muestra cómo se distribuyen los cambios porcentuales
-      del día. La línea punteada oscura es la media, la naranja la mediana, y las grises delimitan
-      una desviación estándar. Un histograma concentrado indica movimientos homogéneos; colas anchas
-      señalan alta dispersión y selectividad.<br><br>
-      <strong>Market Breadth (derecha):</strong> Ratio Advance/Decline del universo completo.
-      Un ratio mayor a 1.5 indica movimiento alcista amplio y participativo. Un ratio bajo con
-      índices al alza puede señalar debilidad estructural.
+      Histograma de cambios con media y mediana. Barras apiladas con alcistas/bajistas.
+      Click en la leyenda para filtrar categorías.
+    </div>
+  </section>
+
+  <section class="card full-width">
+    <div class="card-header"><span class="card-title">Top 20 Ganadores y Perdedores</span><span class="badge">interactivo</span></div>
+    <div class="chart-wrap">{html_movers}</div>
+    <div class="explainer">
+      Barras horizontales para los 20 mayores ganadores y perdedores del día con su sector.
+      Permite ver en qué sectores se concentran los extremos.
     </div>
   </section>
 
   {volume_section}
 
-  <section class="card full-width">
-    <div class="card-header"><span class="card-title">Top 20 Ganadores y Perdedores — Barras por Sector</span><span class="badge">visualización</span></div>
-    <div class="chart-wrap"><img src="data:image/png;base64,{img_movers}" alt="Movers chart"></div>
-    <div class="explainer">
-      <strong>Qué muestra:</strong> Representación gráfica de los top 20 ganadores y perdedores
-      con el sector de pertenencia de cada instrumento. Permite detectar si los extremos del día
-      están concentrados en uno o dos sectores (evento sectorial) o distribuidos en varios
-      (movimiento amplio de mercado).
-    </div>
-  </section>
-
   <footer class="page-footer">
-    Datos: TradingView Screener via tvscreener &nbsp;·&nbsp; {date_str} &nbsp;·&nbsp;
-    Solo con fines informativos, no constituye asesoramiento financiero.
+    Datos: TradingView Screener &nbsp;·&nbsp; {date_str} &nbsp;·&nbsp; Solo con fines informativos
   </footer>
-
 </div>
 </body>
 </html>"""
 
-
-
-with open('index.html', 'w', encoding='utf-8') as f:
+with open('/mnt/user-data/outputs/index.html', 'w', encoding='utf-8') as f:
     f.write(html_content)
 
-print(f"index.html generado correctamente — {now_str}")
+print(f"Dashboard actualizado: {now_str}")
