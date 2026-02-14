@@ -602,7 +602,7 @@ document.addEventListener('DOMContentLoaded', function() {{
 </body>
 </html>"""
 
-with open('/mnt/user-data/outputs/index.html', 'w', encoding='utf-8') as f:
+with open('index.html', 'w', encoding='utf-8') as f:
     f.write(html_content)
 
 print(f"Dashboard actualizado: {now_str}")
