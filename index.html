@@ -19,8 +19,8 @@
     .page-header h1{font-size:1.9rem;font-weight:600;letter-spacing:-0.03em;}
     .page-header h1 span{color:var(--blue);}
     .meta{font-size:0.82rem;color:var(--text-muted);font-family:'DM Mono',monospace;text-align:right;}
-    .sentiment-banner{display:flex;align-items:center;gap:14px;background:var(--surface);border:1px solid var(--border);border-left:5px solid #94a3b8;border-radius:10px;padding:16px 22px;margin-bottom:28px;}
-    .sentiment-label{font-weight:600;font-size:1rem;color:#94a3b8;white-space:nowrap;}
+    .sentiment-banner{display:flex;align-items:center;gap:14px;background:var(--surface);border:1px solid var(--border);border-left:5px solid #fca5a5;border-radius:10px;padding:16px 22px;margin-bottom:28px;}
+    .sentiment-label{font-weight:600;font-size:1rem;color:#fca5a5;white-space:nowrap;}
     .sentiment-text{color:var(--text-muted);font-size:0.87rem;}
     .kpi-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-bottom:28px;}
     .kpi{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px 20px;}
@@ -98,32 +98,32 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="page-wrap">
   <header class="page-header">
     <h1>Dashboard de <span>Análisis de Acciones</span></h1>
-    <div class="meta">Universo: 500 instrumentos<br>Actualizado: 2026-08-05  22:34 UTC</div>
+    <div class="meta">Universo: 500 instrumentos<br>Actualizado: 2026-08-07  00:02 UTC</div>
   </header>
 
   <div class="sentiment-banner">
-    <span class="sentiment-label">Mixto / Sin tendencia clara</span>
+    <span class="sentiment-label">Bajista moderado</span>
     <span class="sentiment-text">
-      Sector líder: <strong>Non-Energy Minerals</strong> &nbsp;·&nbsp;
-      Sector rezagado: <strong>Energy Minerals</strong> &nbsp;·&nbsp;
-      Ratio A/D: <strong>0.95</strong> &nbsp;·&nbsp;
-      Media: <strong>-0.22%</strong>
+      Sector líder: <strong>Energy Minerals</strong> &nbsp;·&nbsp;
+      Sector rezagado: <strong>Consumer Durables</strong> &nbsp;·&nbsp;
+      Ratio A/D: <strong>0.67</strong> &nbsp;·&nbsp;
+      Media: <strong>-0.50%</strong>
     </span>
   </div>
 
   <div class="kpi-strip">
     <div class="kpi"><div class="kpi-label">Universo</div><div class="kpi-value neu">500</div></div>
-    <div class="kpi"><div class="kpi-label">Alcistas</div><div class="kpi-value pos">244</div></div>
-    <div class="kpi"><div class="kpi-label">Bajistas</div><div class="kpi-value neg">256</div></div>
-    <div class="kpi"><div class="kpi-label">Ratio A/D</div><div class="kpi-value neg">0.95</div></div>
-    <div class="kpi"><div class="kpi-label">Cambio promedio</div><div class="kpi-value neg">-0.22%</div></div>
-    <div class="kpi"><div class="kpi-label">Mediana</div><div class="kpi-value neg">-0.05%</div></div>
-    <div class="kpi"><div class="kpi-label">Desvío estándar</div><div class="kpi-value neu">2.34%</div></div>
+    <div class="kpi"><div class="kpi-label">Alcistas</div><div class="kpi-value pos">200</div></div>
+    <div class="kpi"><div class="kpi-label">Bajistas</div><div class="kpi-value neg">298</div></div>
+    <div class="kpi"><div class="kpi-label">Ratio A/D</div><div class="kpi-value neg">0.67</div></div>
+    <div class="kpi"><div class="kpi-label">Cambio promedio</div><div class="kpi-value neg">-0.50%</div></div>
+    <div class="kpi"><div class="kpi-label">Mediana</div><div class="kpi-value neg">-0.33%</div></div>
+    <div class="kpi"><div class="kpi-label">Desvío estándar</div><div class="kpi-value neu">2.68%</div></div>
   </div>
 
   <div class="summary-card">
     <div class="summary-title">Resumen ejecutivo</div>
-    En la jornada analizada, el universo de 500 acciones registró un avance/caída de 244/256 (ratio 0.95), con un cambio promedio de -0.22%. La amplitud del mercado es mixta: el movimiento del día no muestra una dirección dominante clara, lo que suele indicar rotación sectorial o falta de catalizadores definidos. El sector con mejor desempeño promedio fue Non-Energy Minerals, mientras que el de peor desempeño fue Energy Minerals. La dispersión de los cambios (desvío estándar: 2.34%) es elevada, lo que refleja alta selectividad entre instrumentos. Se detectaron 20 acciones con volumen significativamente superior al promedio de 30 ruedas (ratio ≥ 2x), lo que puede anticipar continuidad o reversión de tendencia en esos instrumentos.
+    En la jornada analizada, el universo de 500 acciones registró un avance/caída de 200/298 (ratio 0.67), con un cambio promedio de -0.50%. La amplitud del mercado es mixta: el movimiento del día no muestra una dirección dominante clara, lo que suele indicar rotación sectorial o falta de catalizadores definidos. El sector con mejor desempeño promedio fue Energy Minerals, mientras que el de peor desempeño fue Consumer Durables. La dispersión de los cambios (desvío estándar: 2.68%) es elevada, lo que refleja alta selectividad entre instrumentos. Se detectaron 20 acciones con volumen significativamente superior al promedio de 30 ruedas (ratio ≥ 2x), lo que puede anticipar continuidad o reversión de tendencia en esos instrumentos.
   </div>
 
   <div class="grid-2">
@@ -142,164 +142,164 @@ document.addEventListener('DOMContentLoaded', function() {
   </thead>
   <tbody>
     <tr>
-      <td>CRL</td>
-      <td>Commercial Services</td>
-      <td>Miscellaneous Commercial Services</td>
-      <td><span class="positive">+11.36%</span></td>
-      <td>260.72</td>
-      <td>1782120</td>
+      <td>MSI</td>
+      <td>Electronic Technology</td>
+      <td>Telecommunications Equipment</td>
+      <td><span class="positive">+8.20%</span></td>
+      <td>474.07</td>
+      <td>1908874</td>
     </tr>
     <tr>
-      <td>IFF</td>
-      <td>Consumer Non-Durables</td>
-      <td>Food: Specialty/Candy</td>
-      <td><span class="positive">+8.88%</span></td>
-      <td>88.07</td>
-      <td>3440911</td>
+      <td>PH</td>
+      <td>Producer Manufacturing</td>
+      <td>Industrial Machinery</td>
+      <td><span class="positive">+7.31%</span></td>
+      <td>1069.80</td>
+      <td>1437008</td>
     </tr>
     <tr>
-      <td>AIZ</td>
-      <td>Finance</td>
-      <td>Property/Casualty Insurance</td>
-      <td><span class="positive">+7.20%</span></td>
-      <td>301.57</td>
-      <td>711168</td>
+      <td>LDOS</td>
+      <td>Technology Services</td>
+      <td>Packaged Software</td>
+      <td><span class="positive">+6.63%</span></td>
+      <td>135.26</td>
+      <td>2007246</td>
     </tr>
     <tr>
-      <td>NEM</td>
-      <td>Non-Energy Minerals</td>
-      <td>Precious Metals</td>
-      <td><span class="positive">+6.71%</span></td>
-      <td>104.29</td>
-      <td>9518920</td>
-    </tr>
-    <tr>
-      <td>BKNG</td>
+      <td>FOX</td>
       <td>Consumer Services</td>
-      <td>Other Consumer Services</td>
-      <td><span class="positive">+6.56%</span></td>
-      <td>207.02</td>
-      <td>10651567</td>
+      <td>Broadcasting</td>
+      <td><span class="positive">+6.07%</span></td>
+      <td>55.37</td>
+      <td>1705576</td>
     </tr>
     <tr>
-      <td>MCK</td>
-      <td>Distribution Services</td>
-      <td>Medical Distributors</td>
-      <td><span class="positive">+5.64%</span></td>
-      <td>877.23</td>
-      <td>1142667</td>
+      <td>PTC</td>
+      <td>Technology Services</td>
+      <td>Packaged Software</td>
+      <td><span class="positive">+5.90%</span></td>
+      <td>147.66</td>
+      <td>2188617</td>
     </tr>
     <tr>
-      <td>LLY</td>
+      <td>ALB</td>
+      <td>Process Industries</td>
+      <td>Chemicals: Specialty</td>
+      <td><span class="positive">+5.54%</span></td>
+      <td>125.42</td>
+      <td>4201136</td>
+    </tr>
+    <tr>
+      <td>APA</td>
+      <td>Energy Minerals</td>
+      <td>Integrated Oil</td>
+      <td><span class="positive">+5.40%</span></td>
+      <td>36.53</td>
+      <td>8079429</td>
+    </tr>
+    <tr>
+      <td>FOXA</td>
+      <td>Consumer Services</td>
+      <td>Broadcasting</td>
+      <td><span class="positive">+5.30%</span></td>
+      <td>61.79</td>
+      <td>8570529</td>
+    </tr>
+    <tr>
+      <td>PODD</td>
+      <td>Health Technology</td>
+      <td>Medical Specialties</td>
+      <td><span class="positive">+4.53%</span></td>
+      <td>139.30</td>
+      <td>3249350</td>
+    </tr>
+    <tr>
+      <td>OXY</td>
+      <td>Energy Minerals</td>
+      <td>Integrated Oil</td>
+      <td><span class="positive">+4.14%</span></td>
+      <td>56.04</td>
+      <td>16223380</td>
+    </tr>
+    <tr>
+      <td>LYB</td>
+      <td>Process Industries</td>
+      <td>Chemicals: Specialty</td>
+      <td><span class="positive">+4.08%</span></td>
+      <td>61.44</td>
+      <td>5176848</td>
+    </tr>
+    <tr>
+      <td>ALL</td>
+      <td>Finance</td>
+      <td>Multi-Line Insurance</td>
+      <td><span class="positive">+3.98%</span></td>
+      <td>275.11</td>
+      <td>1913420</td>
+    </tr>
+    <tr>
+      <td>RL</td>
+      <td>Consumer Non-Durables</td>
+      <td>Apparel/Footwear</td>
+      <td><span class="positive">+3.95%</span></td>
+      <td>395.83</td>
+      <td>1263101</td>
+    </tr>
+    <tr>
+      <td>ZTS</td>
       <td>Health Technology</td>
       <td>Pharmaceuticals: Major</td>
-      <td><span class="positive">+4.86%</span></td>
-      <td>1169.86</td>
-      <td>6435384</td>
+      <td><span class="positive">+3.87%</span></td>
+      <td>77.27</td>
+      <td>17854569</td>
     </tr>
     <tr>
-      <td>MAR</td>
-      <td>Consumer Services</td>
-      <td>Hotels/Resorts/Cruise lines</td>
-      <td><span class="positive">+4.67%</span></td>
-      <td>361.31</td>
-      <td>2050789</td>
+      <td>MET</td>
+      <td>Finance</td>
+      <td>Multi-Line Insurance</td>
+      <td><span class="positive">+3.83%</span></td>
+      <td>99.95</td>
+      <td>4234184</td>
     </tr>
     <tr>
-      <td>AMGN</td>
+      <td>BDX</td>
       <td>Health Technology</td>
-      <td>Biotechnology</td>
-      <td><span class="positive">+4.57%</span></td>
-      <td>407.83</td>
-      <td>5748242</td>
+      <td>Medical Specialties</td>
+      <td><span class="positive">+3.76%</span></td>
+      <td>177.07</td>
+      <td>3297239</td>
     </tr>
     <tr>
-      <td>CNC</td>
-      <td>Health Services</td>
-      <td>Managed Health Care</td>
-      <td><span class="positive">+4.56%</span></td>
-      <td>66.99</td>
-      <td>7032155</td>
+      <td>TMUS</td>
+      <td>Communications</td>
+      <td>Wireless Telecommunications</td>
+      <td><span class="positive">+3.75%</span></td>
+      <td>179.97</td>
+      <td>4608508</td>
     </tr>
     <tr>
       <td>PSKY</td>
       <td>Consumer Services</td>
       <td>Cable/Satellite TV</td>
-      <td><span class="positive">+4.53%</span></td>
-      <td>8.76</td>
-      <td>19252158</td>
+      <td><span class="positive">+3.42%</span></td>
+      <td>9.06</td>
+      <td>13262517</td>
     </tr>
     <tr>
-      <td>FICO</td>
-      <td>Commercial Services</td>
-      <td>Financial Publishing/Services</td>
-      <td><span class="positive">+4.26%</span></td>
-      <td>1091.55</td>
-      <td>320192</td>
+      <td>UBER</td>
+      <td>Transportation</td>
+      <td>Other Transportation</td>
+      <td><span class="positive">+3.36%</span></td>
+      <td>70.47</td>
+      <td>31506674</td>
     </tr>
     <tr>
-      <td>HLT</td>
-      <td>Consumer Services</td>
-      <td>Hotels/Resorts/Cruise lines</td>
-      <td><span class="positive">+4.00%</span></td>
-      <td>324.56</td>
-      <td>2043203</td>
-    </tr>
-    <tr>
-      <td>DIS</td>
-      <td>Consumer Services</td>
-      <td>Movies/Entertainment</td>
-      <td><span class="positive">+3.65%</span></td>
-      <td>101.76</td>
-      <td>20796782</td>
-    </tr>
-    <tr>
-      <td>WYNN</td>
-      <td>Consumer Services</td>
-      <td>Casinos/Gaming</td>
-      <td><span class="positive">+3.64%</span></td>
-      <td>101.15</td>
-      <td>3658179</td>
-    </tr>
-    <tr>
-      <td>COR</td>
-      <td>Distribution Services</td>
-      <td>Medical Distributors</td>
-      <td><span class="positive">+3.57%</span></td>
-      <td>317.22</td>
-      <td>2291354</td>
-    </tr>
-    <tr>
-      <td>ANET</td>
-      <td>Electronic Technology</td>
-      <td>Computer Peripherals</td>
-      <td><span class="positive">+3.57%</span></td>
-      <td>197.31</td>
-      <td>20211790</td>
-    </tr>
-    <tr>
-      <td>ELV</td>
-      <td>Health Services</td>
-      <td>Managed Health Care</td>
-      <td><span class="positive">+3.50%</span></td>
-      <td>391.24</td>
-      <td>1165283</td>
-    </tr>
-    <tr>
-      <td>IQV</td>
+      <td>BSX</td>
       <td>Health Technology</td>
-      <td>Biotechnology</td>
-      <td><span class="positive">+3.44%</span></td>
-      <td>236.05</td>
-      <td>1557699</td>
-    </tr>
-    <tr>
-      <td>NVDA</td>
-      <td>Electronic Technology</td>
-      <td>Semiconductors</td>
-      <td><span class="positive">+3.43%</span></td>
-      <td>219.22</td>
-      <td>157574730</td>
+      <td>Medical Specialties</td>
+      <td><span class="positive">+3.27%</span></td>
+      <td>49.30</td>
+      <td>21398948</td>
     </tr>
   </tbody>
 </table></div>
@@ -320,164 +320,164 @@ document.addEventListener('DOMContentLoaded', function() {
   </thead>
   <tbody>
     <tr>
-      <td>PODD</td>
-      <td>Health Technology</td>
-      <td>Medical Specialties</td>
-      <td><span class="negative">-20.12%</span></td>
-      <td>133.26</td>
-      <td>7157458</td>
-    </tr>
-    <tr>
-      <td>DVA</td>
-      <td>Health Services</td>
-      <td>Medical/Nursing Services</td>
-      <td><span class="negative">-17.24%</span></td>
-      <td>188.69</td>
-      <td>3812755</td>
-    </tr>
-    <tr>
-      <td>CDW</td>
-      <td>Technology Services</td>
-      <td>Information Technology Services</td>
-      <td><span class="negative">-9.03%</span></td>
-      <td>140.10</td>
-      <td>5811110</td>
-    </tr>
-    <tr>
-      <td>AMD</td>
-      <td>Electronic Technology</td>
-      <td>Semiconductors</td>
-      <td><span class="negative">-7.04%</span></td>
-      <td>482.05</td>
-      <td>49461041</td>
-    </tr>
-    <tr>
-      <td>EOG</td>
-      <td>Energy Minerals</td>
-      <td>Integrated Oil</td>
-      <td><span class="negative">-6.47%</span></td>
-      <td>134.23</td>
-      <td>5654910</td>
-    </tr>
-    <tr>
       <td>HONA</td>
       <td>Electronic Technology</td>
       <td>Aerospace & Defense</td>
-      <td><span class="negative">-5.93%</span></td>
-      <td>203.64</td>
-      <td>4383175</td>
+      <td><span class="negative">-23.16%</span></td>
+      <td>156.47</td>
+      <td>20626990</td>
     </tr>
     <tr>
-      <td>SNDK</td>
+      <td>APP</td>
+      <td>Technology Services</td>
+      <td>Packaged Software</td>
+      <td><span class="negative">-19.66%</span></td>
+      <td>335.67</td>
+      <td>15232298</td>
+    </tr>
+    <tr>
+      <td>DDOG</td>
+      <td>Technology Services</td>
+      <td>Packaged Software</td>
+      <td><span class="negative">-19.03%</span></td>
+      <td>229.29</td>
+      <td>15028671</td>
+    </tr>
+    <tr>
+      <td>AXON</td>
       <td>Electronic Technology</td>
-      <td>Computer Peripherals</td>
-      <td><span class="negative">-5.40%</span></td>
-      <td>1350.50</td>
-      <td>15869980</td>
+      <td>Aerospace & Defense</td>
+      <td><span class="negative">-14.28%</span></td>
+      <td>522.46</td>
+      <td>2207518</td>
     </tr>
     <tr>
       <td>WDC</td>
       <td>Electronic Technology</td>
       <td>Computer Peripherals</td>
-      <td><span class="negative">-5.36%</span></td>
-      <td>519.17</td>
-      <td>9466080</td>
+      <td><span class="negative">-13.03%</span></td>
+      <td>451.52</td>
+      <td>16185780</td>
     </tr>
     <tr>
-      <td>UBER</td>
-      <td>Transportation</td>
-      <td>Other Transportation</td>
-      <td><span class="negative">-5.29%</span></td>
-      <td>68.18</td>
-      <td>50066829</td>
-    </tr>
-    <tr>
-      <td>CVS</td>
-      <td>Retail Trade</td>
-      <td>Drugstore Chains</td>
-      <td><span class="negative">-5.08%</span></td>
-      <td>99.12</td>
-      <td>18513250</td>
-    </tr>
-    <tr>
-      <td>SBAC</td>
-      <td>Finance</td>
-      <td>Real Estate Investment Trusts</td>
-      <td><span class="negative">-5.06%</span></td>
-      <td>178.40</td>
-      <td>2210996</td>
-    </tr>
-    <tr>
-      <td>DXCM</td>
+      <td>VTRS</td>
       <td>Health Technology</td>
-      <td>Medical Specialties</td>
-      <td><span class="negative">-4.92%</span></td>
-      <td>82.66</td>
-      <td>6008252</td>
+      <td>Pharmaceuticals: Major</td>
+      <td><span class="negative">-7.71%</span></td>
+      <td>16.29</td>
+      <td>21022856</td>
     </tr>
     <tr>
-      <td>CCI</td>
+      <td>HST</td>
       <td>Finance</td>
       <td>Real Estate Investment Trusts</td>
-      <td><span class="negative">-4.92%</span></td>
-      <td>73.84</td>
-      <td>10819434</td>
+      <td><span class="negative">-6.96%</span></td>
+      <td>23.38</td>
+      <td>20297166</td>
     </tr>
     <tr>
-      <td>ON</td>
+      <td>TPL</td>
+      <td>Miscellaneous</td>
+      <td>Investment Trusts/Mutual Funds</td>
+      <td><span class="negative">-6.87%</span></td>
+      <td>355.64</td>
+      <td>817077</td>
+    </tr>
+    <tr>
+      <td>SNDK</td>
       <td>Electronic Technology</td>
-      <td>Semiconductors</td>
-      <td><span class="negative">-4.79%</span></td>
-      <td>76.91</td>
-      <td>17284082</td>
+      <td>Computer Peripherals</td>
+      <td><span class="negative">-6.81%</span></td>
+      <td>1258.58</td>
+      <td>19146002</td>
     </tr>
     <tr>
-      <td>MPC</td>
-      <td>Energy Minerals</td>
-      <td>Oil Refining/Marketing</td>
-      <td><span class="negative">-4.75%</span></td>
-      <td>297.75</td>
-      <td>2776836</td>
+      <td>TTD</td>
+      <td>Technology Services</td>
+      <td>Packaged Software</td>
+      <td><span class="negative">-6.80%</span></td>
+      <td>17.67</td>
+      <td>91848217</td>
     </tr>
     <tr>
-      <td>DVN</td>
-      <td>Energy Minerals</td>
-      <td>Integrated Oil</td>
-      <td><span class="negative">-4.45%</span></td>
-      <td>42.09</td>
-      <td>15316024</td>
+      <td>XYZ</td>
+      <td>Commercial Services</td>
+      <td>Miscellaneous Commercial Services</td>
+      <td><span class="negative">-6.15%</span></td>
+      <td>79.02</td>
+      <td>11657003</td>
     </tr>
     <tr>
-      <td>SMCI</td>
+      <td>FICO</td>
+      <td>Commercial Services</td>
+      <td>Financial Publishing/Services</td>
+      <td><span class="negative">-5.47%</span></td>
+      <td>1031.89</td>
+      <td>370525</td>
+    </tr>
+    <tr>
+      <td>DELL</td>
       <td>Electronic Technology</td>
       <td>Computer Processing Hardware</td>
-      <td><span class="negative">-4.32%</span></td>
-      <td>30.32</td>
-      <td>35495326</td>
+      <td><span class="negative">-5.41%</span></td>
+      <td>437.65</td>
+      <td>6093310</td>
     </tr>
     <tr>
-      <td>Q</td>
+      <td>BBY</td>
+      <td>Retail Trade</td>
+      <td>Electronics/Appliance Stores</td>
+      <td><span class="negative">-5.30%</span></td>
+      <td>80.02</td>
+      <td>6054653</td>
+    </tr>
+    <tr>
+      <td>SOLV</td>
+      <td>Health Services</td>
+      <td>Medical/Nursing Services</td>
+      <td><span class="negative">-5.16%</span></td>
+      <td>82.96</td>
+      <td>2355160</td>
+    </tr>
+    <tr>
+      <td>NCLH</td>
+      <td>Consumer Services</td>
+      <td>Hotels/Resorts/Cruise lines</td>
+      <td><span class="negative">-4.58%</span></td>
+      <td>19.37</td>
+      <td>10280036</td>
+    </tr>
+    <tr>
+      <td>CHRW</td>
+      <td>Transportation</td>
+      <td>Air Freight/Couriers</td>
+      <td><span class="negative">-4.52%</span></td>
+      <td>146.66</td>
+      <td>2397588</td>
+    </tr>
+    <tr>
+      <td>MCHP</td>
       <td>Electronic Technology</td>
-      <td>Electronic Equipment/Instruments</td>
+      <td>Semiconductors</td>
+      <td><span class="negative">-4.41%</span></td>
+      <td>74.36</td>
+      <td>15894882</td>
+    </tr>
+    <tr>
+      <td>MRNA</td>
+      <td>Health Technology</td>
+      <td>Biotechnology</td>
       <td><span class="negative">-4.26%</span></td>
-      <td>135.64</td>
-      <td>2033208</td>
+      <td>53.86</td>
+      <td>5633385</td>
     </tr>
     <tr>
-      <td>ECHO</td>
-      <td>Communications</td>
-      <td>Specialty Telecommunications</td>
-      <td><span class="negative">-4.22%</span></td>
-      <td>87.73</td>
-      <td>5245664</td>
-    </tr>
-    <tr>
-      <td>AMT</td>
-      <td>Finance</td>
-      <td>Real Estate Investment Trusts</td>
-      <td><span class="negative">-4.10%</span></td>
-      <td>168.07</td>
-      <td>5292104</td>
+      <td>DVA</td>
+      <td>Health Services</td>
+      <td>Medical/Nursing Services</td>
+      <td><span class="negative">-4.25%</span></td>
+      <td>180.67</td>
+      <td>1819143</td>
     </tr>
   </tbody>
 </table></div>
@@ -491,7 +491,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <head><meta charset="utf-8" /></head>
 <body>
     <div style="height:400px; width:100%;">                        <script>window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
-        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.7.0.min.js" integrity="sha256-jvTGqxNp8AGWEcvNLVuKr+8j5dGe9Yw51LQkmDH+IYA=" crossorigin="anonymous"></script>                <div id="heatmap" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("heatmap")) {                    Plotly.newPlot(                        "heatmap",                        [{"colorbar":{"title":{"side":"right","text":"Cambio %"}},"colorscale":[[0.0,"rgb(165,0,38)"],[0.1,"rgb(215,48,39)"],[0.2,"rgb(244,109,67)"],[0.3,"rgb(253,174,97)"],[0.4,"rgb(254,224,139)"],[0.5,"rgb(255,255,191)"],[0.6,"rgb(217,239,139)"],[0.7,"rgb(166,217,106)"],[0.8,"rgb(102,189,99)"],[0.9,"rgb(26,152,80)"],[1.0,"rgb(0,104,55)"]],"hoverinfo":"text","hovertext":[["\u003cb\u003eNon-Energy Minerals\u003c\u002fb\u003e\u003cbr\u003eCambio promedio: +1.67%\u003cbr\u003eAcciones: 7\u003cbr\u003eAlcistas: 6\u003cbr\u003eBajistas: 1","\u003cb\u003eDistribution Services\u003c\u002fb\u003e\u003cbr\u003eCambio promedio: +1.54%\u003cbr\u003eAcciones: 8\u003cbr\u003eAlcistas: 6\u003cbr\u003eBajistas: 2","\u003cb\u003eConsumer Services\u003c\u002fb\u003e\u003cbr\u003eCambio promedio: +1.44%\u003cbr\u003eAcciones: 28\u003cbr\u003eAlcistas: 20\u003cbr\u003eBajistas: 8","\u003cb\u003eCommercial Services\u003c\u002fb\u003e\u003cbr\u003eCambio promedio: +0.69%\u003cbr\u003eAcciones: 14\u003cbr\u003eAlcistas: 6\u003cbr\u003eBajistas: 8","\u003cb\u003eConsumer Durables\u003c\u002fb\u003e\u003cbr\u003eCambio promedio: +0.48%\u003cbr\u003eAcciones: 11\u003cbr\u003eAlcistas: 8\u003cbr\u003eBajistas: 3","\u003cb\u003eConsumer Non-Durables\u003c\u002fb\u003e\u003cbr\u003eCambio promedio: +0.40%\u003cbr\u003eAcciones: 28\u003cbr\u003eAlcistas: 17\u003cbr\u003eBajistas: 11"],["\u003cb\u003eFinance\u003c\u002fb\u003e\u003cbr\u003eCambio promedio: +0.13%\u003cbr\u003eAcciones: 97\u003cbr\u003eAlcistas: 59\u003cbr\u003eBajistas: 38","\u003cb\u003eProcess Industries\u003c\u002fb\u003e\u003cbr\u003eCambio promedio: +0.00%\u003cbr\u003eAcciones: 19\u003cbr\u003eAlcistas: 10\u003cbr\u003eBajistas: 9","\u003cb\u003eRetail Trade\u003c\u002fb\u003e\u003cbr\u003eCambio promedio: -0.02%\u003cbr\u003eAcciones: 24\u003cbr\u003eAlcistas: 13\u003cbr\u003eBajistas: 11","\u003cb\u003eProducer Manufacturing\u003c\u002fb\u003e\u003cbr\u003eCambio promedio: -0.08%\u003cbr\u003eAcciones: 32\u003cbr\u003eAlcistas: 18\u003cbr\u003eBajistas: 14","\u003cb\u003eHealth Technology\u003c\u002fb\u003e\u003cbr\u003eCambio promedio: -0.21%\u003cbr\u003eAcciones: 41\u003cbr\u003eAlcistas: 23\u003cbr\u003eBajistas: 18","\u003cb\u003eHealth Services\u003c\u002fb\u003e\u003cbr\u003eCambio promedio: -0.31%\u003cbr\u003eAcciones: 11\u003cbr\u003eAlcistas: 8\u003cbr\u003eBajistas: 3"],["\u003cb\u003eTransportation\u003c\u002fb\u003e\u003cbr\u003eCambio promedio: -0.48%\u003cbr\u003eAcciones: 15\u003cbr\u003eAlcistas: 7\u003cbr\u003eBajistas: 8","\u003cb\u003eIndustrial Services\u003c\u002fb\u003e\u003cbr\u003eCambio promedio: -0.77%\u003cbr\u003eAcciones: 12\u003cbr\u003eAlcistas: 2\u003cbr\u003eBajistas: 10","\u003cb\u003eUtilities\u003c\u002fb\u003e\u003cbr\u003eCambio promedio: -0.91%\u003cbr\u003eAcciones: 32\u003cbr\u003eAlcistas: 4\u003cbr\u003eBajistas: 28","\u003cb\u003eElectronic Technology\u003c\u002fb\u003e\u003cbr\u003eCambio promedio: -0.98%\u003cbr\u003eAcciones: 56\u003cbr\u003eAlcistas: 23\u003cbr\u003eBajistas: 33","\u003cb\u003eTechnology Services\u003c\u002fb\u003e\u003cbr\u003eCambio promedio: -1.00%\u003cbr\u003eAcciones: 47\u003cbr\u003eAlcistas: 14\u003cbr\u003eBajistas: 33","\u003cb\u003eCommunications\u003c\u002fb\u003e\u003cbr\u003eCambio promedio: -2.15%\u003cbr\u003eAcciones: 4\u003cbr\u003eAlcistas: 0\u003cbr\u003eBajistas: 4"],["\u003cb\u003eEnergy Minerals\u003c\u002fb\u003e\u003cbr\u003eCambio promedio: -3.02%\u003cbr\u003eAcciones: 13\u003cbr\u003eAlcistas: 0\u003cbr\u003eBajistas: 13","","","","",""]],"showscale":true,"text":[["Non-Energy Mine\u003cbr\u003e+1.67% (7)","Distribution Se\u003cbr\u003e+1.54% (8)","Consumer Servic\u003cbr\u003e+1.44% (28)","Commercial Serv\u003cbr\u003e+0.69% (14)","Consumer Durabl\u003cbr\u003e+0.48% (11)","Consumer Non-Du\u003cbr\u003e+0.40% (28)"],["Finance\u003cbr\u003e+0.13% (97)","Process Industr\u003cbr\u003e+0.00% (19)","Retail Trade\u003cbr\u003e-0.02% (24)","Producer Manufa\u003cbr\u003e-0.08% (32)","Health Technolo\u003cbr\u003e-0.21% (41)","Health Services\u003cbr\u003e-0.31% (11)"],["Transportation\u003cbr\u003e-0.48% (15)","Industrial Serv\u003cbr\u003e-0.77% (12)","Utilities\u003cbr\u003e-0.91% (32)","Electronic Tech\u003cbr\u003e-0.98% (56)","Technology Serv\u003cbr\u003e-1.00% (47)","Communications\u003cbr\u003e-2.15% (4)"],["Energy Minerals\u003cbr\u003e-3.02% (13)","","","","",""]],"textfont":{"color":"white","family":"monospace","size":9},"texttemplate":"%{text}","z":{"dtype":"f8","bdata":"wxbIyLTH+j8b5MAqLbH4P9HbWQ5rGPc\u002fd9pGzssS5j8q3alAI3\u002feP0HypKnuzNk\u002fXUcWCy93wD+vITMQVSskPy0w+w3rK5a\u002fmVrQ8KyXtb\u002fDFRrJjfXKv89Ipo3i0NO\u002f0dhWv1Xs3r+f75LsQZvovwXiH7lDD+2\u002fLjGk6Mx\u002f77\u002f59ZavkOPvv6waw+YnKwHAyWLzReAkCMAAAAAAAAD4fwAAAAAAAPh\u002fAAAAAAAA+H8AAAAAAAD4fwAAAAAAAPh\u002f","shape":"4, 6"},"zmid":0,"type":"heatmap"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"xaxis":{"showticklabels":false,"showgrid":false,"zeroline":false},"yaxis":{"showticklabels":false,"showgrid":false,"zeroline":false},"font":{"family":"DM Sans, sans-serif"},"margin":{"l":20,"r":20,"t":60,"b":20},"title":{"text":"Heatmap de Sectores"},"height":400,"plot_bgcolor":"#f8fafc","paper_bgcolor":"#f8fafc"},                        {"displayModeBar": true, "displaylogo": false, "responsive": true}                    )                };            </script>        </div>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.7.0.min.js" integrity="sha256-jvTGqxNp8AGWEcvNLVuKr+8j5dGe9Yw51LQkmDH+IYA=" crossorigin="anonymous"></script>                <div id="heatmap" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("heatmap")) {                    Plotly.newPlot(                        "heatmap",                        [{"colorbar":{"title":{"side":"right","text":"Cambio %"}},"colorscale":[[0.0,"rgb(165,0,38)"],[0.1,"rgb(215,48,39)"],[0.2,"rgb(244,109,67)"],[0.3,"rgb(253,174,97)"],[0.4,"rgb(254,224,139)"],[0.5,"rgb(255,255,191)"],[0.6,"rgb(217,239,139)"],[0.7,"rgb(166,217,106)"],[0.8,"rgb(102,189,99)"],[0.9,"rgb(26,152,80)"],[1.0,"rgb(0,104,55)"]],"hoverinfo":"text","hovertext":[["\u003cb\u003eEnergy Minerals\u003c\u002fb\u003e\u003cbr\u003eCambio promedio: +1.89%\u003cbr\u003eAcciones: 13\u003cbr\u003eAlcistas: 13\u003cbr\u003eBajistas: 0","\u003cb\u003eCommunications\u003c\u002fb\u003e\u003cbr\u003eCambio promedio: +1.72%\u003cbr\u003eAcciones: 4\u003cbr\u003eAlcistas: 3\u003cbr\u003eBajistas: 1","\u003cb\u003eIndustrial Services\u003c\u002fb\u003e\u003cbr\u003eCambio promedio: +0.63%\u003cbr\u003eAcciones: 12\u003cbr\u003eAlcistas: 8\u003cbr\u003eBajistas: 4","\u003cb\u003eConsumer Services\u003c\u002fb\u003e\u003cbr\u003eCambio promedio: +0.43%\u003cbr\u003eAcciones: 28\u003cbr\u003eAlcistas: 16\u003cbr\u003eBajistas: 12","\u003cb\u003eDistribution Services\u003c\u002fb\u003e\u003cbr\u003eCambio promedio: +0.18%\u003cbr\u003eAcciones: 9\u003cbr\u003eAlcistas: 4\u003cbr\u003eBajistas: 5","\u003cb\u003eHealth Technology\u003c\u002fb\u003e\u003cbr\u003eCambio promedio: -0.07%\u003cbr\u003eAcciones: 41\u003cbr\u003eAlcistas: 18\u003cbr\u003eBajistas: 23"],["\u003cb\u003eProcess Industries\u003c\u002fb\u003e\u003cbr\u003eCambio promedio: -0.25%\u003cbr\u003eAcciones: 19\u003cbr\u003eAlcistas: 6\u003cbr\u003eBajistas: 13","\u003cb\u003eRetail Trade\u003c\u002fb\u003e\u003cbr\u003eCambio promedio: -0.32%\u003cbr\u003eAcciones: 23\u003cbr\u003eAlcistas: 10\u003cbr\u003eBajistas: 13","\u003cb\u003eUtilities\u003c\u002fb\u003e\u003cbr\u003eCambio promedio: -0.38%\u003cbr\u003eAcciones: 32\u003cbr\u003eAlcistas: 8\u003cbr\u003eBajistas: 23","\u003cb\u003eConsumer Non-Durables\u003c\u002fb\u003e\u003cbr\u003eCambio promedio: -0.47%\u003cbr\u003eAcciones: 28\u003cbr\u003eAlcistas: 9\u003cbr\u003eBajistas: 19","\u003cb\u003eProducer Manufacturing\u003c\u002fb\u003e\u003cbr\u003eCambio promedio: -0.54%\u003cbr\u003eAcciones: 32\u003cbr\u003eAlcistas: 9\u003cbr\u003eBajistas: 23","\u003cb\u003eFinance\u003c\u002fb\u003e\u003cbr\u003eCambio promedio: -0.65%\u003cbr\u003eAcciones: 97\u003cbr\u003eAlcistas: 32\u003cbr\u003eBajistas: 65"],["\u003cb\u003eTransportation\u003c\u002fb\u003e\u003cbr\u003eCambio promedio: -0.82%\u003cbr\u003eAcciones: 15\u003cbr\u003eAlcistas: 5\u003cbr\u003eBajistas: 10","\u003cb\u003eTechnology Services\u003c\u002fb\u003e\u003cbr\u003eCambio promedio: -0.87%\u003cbr\u003eAcciones: 47\u003cbr\u003eAlcistas: 21\u003cbr\u003eBajistas: 26","\u003cb\u003eCommercial Services\u003c\u002fb\u003e\u003cbr\u003eCambio promedio: -0.90%\u003cbr\u003eAcciones: 14\u003cbr\u003eAlcistas: 5\u003cbr\u003eBajistas: 8","\u003cb\u003eHealth Services\u003c\u002fb\u003e\u003cbr\u003eCambio promedio: -1.12%\u003cbr\u003eAcciones: 11\u003cbr\u003eAlcistas: 5\u003cbr\u003eBajistas: 6","\u003cb\u003eElectronic Technology\u003c\u002fb\u003e\u003cbr\u003eCambio promedio: -1.18%\u003cbr\u003eAcciones: 56\u003cbr\u003eAlcistas: 25\u003cbr\u003eBajistas: 31","\u003cb\u003eNon-Energy Minerals\u003c\u002fb\u003e\u003cbr\u003eCambio promedio: -1.46%\u003cbr\u003eAcciones: 7\u003cbr\u003eAlcistas: 1\u003cbr\u003eBajistas: 6"],["\u003cb\u003eConsumer Durables\u003c\u002fb\u003e\u003cbr\u003eCambio promedio: -1.70%\u003cbr\u003eAcciones: 11\u003cbr\u003eAlcistas: 2\u003cbr\u003eBajistas: 9","","","","",""]],"showscale":true,"text":[["Energy Minerals\u003cbr\u003e+1.89% (13)","Communications\u003cbr\u003e+1.72% (4)","Industrial Serv\u003cbr\u003e+0.63% (12)","Consumer Servic\u003cbr\u003e+0.43% (28)","Distribution Se\u003cbr\u003e+0.18% (9)","Health Technolo\u003cbr\u003e-0.07% (41)"],["Process Industr\u003cbr\u003e-0.25% (19)","Retail Trade\u003cbr\u003e-0.32% (23)","Utilities\u003cbr\u003e-0.38% (32)","Consumer Non-Du\u003cbr\u003e-0.47% (28)","Producer Manufa\u003cbr\u003e-0.54% (32)","Finance\u003cbr\u003e-0.65% (97)"],["Transportation\u003cbr\u003e-0.82% (15)","Technology Serv\u003cbr\u003e-0.87% (47)","Commercial Serv\u003cbr\u003e-0.90% (14)","Health Services\u003cbr\u003e-1.12% (11)","Electronic Tech\u003cbr\u003e-1.18% (56)","Non-Energy Mine\u003cbr\u003e-1.46% (7)"],["Consumer Durabl\u003cbr\u003e-1.70% (11)","","","","",""]],"textfont":{"color":"white","family":"monospace","size":9},"texttemplate":"%{text}","z":{"dtype":"f8","bdata":"EMJ3T0E6\u002fj+BpymwSZL7P++fPTVgDuQ\u002fjopS4+M82z9ZU21V0J3GP5m36Y5w2rK\u002fWNCjU9Gjz7\u002fLOPbY9ZDUv7SLXOPMaNi\u002fF2kQ6LMZ3r8j+nt0Uyfhv3S9OIuS0OS\u002fFrZFtXs66r\u002fMAupCML3rv9F+Nj1L0ey\u002f10hOc5fu8b\u002fN5hyGiN\u002fyv4XBBTSfS\u002fe\u002f4ZJ7rjkk+78AAAAAAAD4fwAAAAAAAPh\u002fAAAAAAAA+H8AAAAAAAD4fwAAAAAAAPh\u002f","shape":"4, 6"},"zmid":0,"type":"heatmap"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"xaxis":{"showticklabels":false,"showgrid":false,"zeroline":false},"yaxis":{"showticklabels":false,"showgrid":false,"zeroline":false},"font":{"family":"DM Sans, sans-serif"},"margin":{"l":20,"r":20,"t":60,"b":20},"title":{"text":"Heatmap de Sectores"},"height":400,"plot_bgcolor":"#f8fafc","paper_bgcolor":"#f8fafc"},                        {"displayModeBar": true, "displaylogo": false, "responsive": true}                    )                };            </script>        </div>
 </body>
 </html></div>
     <div class="explainer">
@@ -505,7 +505,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="chart-wrap"><html>
 <head><meta charset="utf-8" /></head>
 <body>
-    <div style="height:400px; width:100%;">                            <div id="breadth" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("breadth")) {                    Plotly.newPlot(                        "breadth",                        [{"hovertemplate":"Cambio: %{x:.2f}%\u003cbr\u003eCantidad: %{y}\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#3b82f6"},"name":"Frecuencia","nbinsx":45,"opacity":0.75,"x":{"dtype":"f8","bdata":"NGcQ5b56C0DxH71Mj8HgPzwO20HpHhDATt4OBDM4EMCxfku7qV7xvyhr0eO4gvu\u002fVMbtGMlinT+ZQR8S4xHCP7ikXwZPWfy\u002fCvii3cdsE0A6ktjOO9OtPzAuwKJbK9Q\u002fkV0I9jXK3j8MMJl\u002fmKnmP1lsBEBMLRzAGxNj4Ksu0r8pMecMzjb4v1CNqgjdsfA\u002fE+5yOLhhyT9JpAw6v8q7v8dcDFbuO8m\u002f3P6WuVjO4T81fKWkUIDvP+SjYt9dHgLAlW5j8aHI47\u002fMzIbVTqTtv4+d37fT7uO\u002f7hKe+IW18D\u002fqVAc3x\u002fsJwFGXy4zbzQTAoCIsGV3H8z\u002ftDDQ6ifbTP87Dw8PDwwDAMrX1rmGD9j8Z3TwziSLiP7e7T54PKeq\u002fsAAAAACA0D+PbnSGCGfrPwmnXgYSfeY\u002f9m+FRPNL778TXGBVHBQAQDlbMGyPEvC\u002fiCaux69K8T\u002fChuLcLqesv0whXJUNPew\u002fuonON2urAMBe3PgIi7H1vxeOov0PjgxAGPNuzKIA4j\u002fLNpRZJAvlPyaHul1\u002fKfU\u002fpExKNfP01D\u002fTyfrgBkQSQDcI4+qmmuS\u002fdVi8Nk+HAkCI97mqFv\u002fgP6oOBkulmxXAEzz4\u002fsXfAEB1L4JPgfzrv+qpuRQgcfQ\u002finvz+0lyzb+m+ToK5R\u002f5PxsDBjkeHO2\u002fsNk7WdftAMAU1AsacLQLwPwwAwp4ucs\u002fVnoqQsfg5b\u002frG2nD31fOP9g6IxVzq\u002fe\u002fPKqwZD9uFcBvE5fLwCsNQDfwkHiMEfg\u002fVXO1ESp+0b\u002ffObGtCw\u002fiP5XsgilhnwNAE69zo+NJ67+PBQ4vNkcJwOSmHiCO1eu\u002fuEx2PqykBMBM9p8ni0AaQEqfhZ3Iq\u002fA\u002f2rh0uyjm9b+TEMQExcW\u002fP5nWwezaL\u002fk\u002f600hRwoLBECxLFmCG\u002fncv80BbenHqwPAUhBtW2srFcAGDGfyOnrzP+A0kbuTJsC\u002fntbarATs\u002f7\u002f9RkLwJq3zP5xI3Vep2P+\u002f++6w62Yh\u002fj989SVbjnALwOz12R8lYtQ\u002fGvWFxHhNFMCfYGcrwmbbPzkvrLsChe4\u002fTRZYyfBK6z8MVw5Rznj0P6RxkQxq6+i\u002fmdBKyHxk479gPFYwQmbvP5t2Us9\u002fxgPAtADdpGDg8T+ExOv102ThPzOVKWbsLs+\u002f0ydQvHfZGkDbU1MkgBHJvxW6gtzelvM\u002f95vm8P2WxL\u002fO+SkWT70HQAl5aPnnNQNAs0W2o\u002f+Hxj9WPgVXYGzcP\u002fhPMOtL39u\u002fAL0IDR2+5j++JJ\u002fI44oWQMFxHMdxHPe\u002fu6vPFJ353j81M37N+qb7vzFQClmq4p+\u002f1fAnNw\u002fYCECnqg6opvLnv+8FgB5RMuo\u002fMp9j4BOB6b8F6nj1GO0CwIO9dk8wk8Y\u002fbcEMS92qEkBZziBLkzjWP6aABVtV\u002f5M\u002feNZ43+us8L9QrfJQAwfTP9zv2+OObfs\u002fEUXCWCet9L8T1BDRBWWFP93n0RhVSAJACXdAeNZeA0BkNGHLp\u002fEBQBc7ZWPZ+QFAbXjLNWZ19T8YYwcuRrXav0g01RKcyQFAuPHou3HZ2j+a028rzRrnv8svXIkDgeA\u002fZDCXX7htAMCaEMOEnAMTwG9B3\u002f6ggug\u002fXMBaAWsFDEAuejNB\u002fXPbPxaddupqaLA\u002f877Uc\u002f9L6L8illwkAYjrPyuRJK+i9Pm\u002faoxWR2mt8b8EKUC0UFXqPyAlMg3bzeo\u002f4lFTHwN89j92GtpGZSzxP13J7XHCqPA\u002fkd6gckQ80b930wEXVWMQwDnzzmPzzO4\u002fZEiFDUUN\u002fD+mIxpc1qDBP52ItgJqFui\u002fXMzOP+HHBMCabDkOIg0BQDC6UovOye0\u002fxDOdNgLw6T+34STEQ1f8v9B1hrnCweq\u002fPw7fz1wCEEBtk+QFhOHev9gNFk1dBPG\u002fVxxgRI2R8D\u002fPawNBFCrhP87haQ1R5BnAWV07oeS59L9OpxllLVn5P5YHhCEl1f6\u002fC80chxGG+b\u002fJsR0KgoPqvzjlSbMaAAbAjvqZSJhv97+hx07vsr3oPxjHsptwt9G\u002f6NMuZB\u002fH8j+XKgDX+vzoPw\u002fyU8AdgcA\u002fZ9JooJBV5j9BujOMbhfXP7zTmTuduRfAtiaklRoo8z+FJwHbu9sFwGJ6Cif7MPY\u002fci4I0IL31D\u002fpIZIXfLnTvwRzjSrmteE\u002fgB0ya924AUCYLbwcFVnQP829ViNVT8E\u002fVahKrz2TDEDEfSu4hobZP99GNv\u002fu4bi\u002feY0SpYGBAcBNbL6SfanQP5SPzywKFwzAAADnyzTs8r9WsD0mf\u002fX1v2qQrPiJWdS\u002fk\u002ff7z+Di0T92J9iq\u002fgn5v1jezpCYtwXAs7CmnuHm4b\u002fF\u002fZSZtnn4vyK9O2hIBuI\u002f51vgAhe46L9CNHvIynQDQJKVC5EedvG\u002f62IHdm1fAsDFut+k7+\u002fdv+xgsALDVNm\u002fiXVTzHeWAsCK5QA+CWXSP3VCQCGgEPA\u002fNP3LYOlr3T\u002fOIKmUHsQHwNddT3FT1dK\u002fwA8eUyZx7z\u002fT\u002f\u002f\u002f\u002f\u002f3\u002fmv1nxoCdoBfM\u002fW1LgflaI9T\u002f9k+7jmaLgvzX9YkBGUvE\u002f19kpO0wY9D9QazmEE4jtv1LPmAVDZf2\u002fDbkE1h+s8L+iKzirzXr2P4rDXeYTI9g\u002fDjq45kbMEcBwRhXRVJb9P7fWXeL7oua\u002fmRBw9kya\u002fb8EHCl0rFbGv4riM4qoUNQ\u002f0DCk+sYC4r9Vc805rX4OwGbTM36TO\u002fy\u002f4wIr2gyvAcBXSXa8kKSyPwAAmyXJVd0\u002fXhiN1MwVAECaLlL5Sga7P\u002fzwI7aZFbm\u002fVJgaTh0j8D9JiAkQuvvmP7tFo82QjwzAej5NwtMZ2L+FSV2G7gjVvxGoBjgCaAlAnXYQdKUB8r+iGp\u002fhPOMFwK9TV\u002fsv67E\u002flSjQxppN0T8LW+G4Y3H7P8a9qcytQLW\u002f\u002f0O\u002f2Tr09T9NObdcTdXhvy0B9Fedq+8\u002fkaC\u002f\u002fo\u002fX3D8J7oyEaXXxP8SvDVcMhQtAjjphPsJ7A0DXbDfmEMPUP2klMeEx7Pa\u002fF67Ofdim9D\u002f+d69sVqTjP63MYLTGoO6\u002fXKW5IPHvBsBd5nj\u002f+vHmP+\u002fx\u002fHWKvuI\u002ff7QY8582AMDxCafARlPcvwThvc03zNE\u002fODLYEY5N0z\u002fC35ylPCjNP+H5+fn5+dm\u002fBI0zCGr\u002f7L9\u002fs+SE3lDjPwGAMsRhu\u002f6\u002fIwDDXq698T8YaD3zD+zoP7sdqtlo+ei\u002fp\u002f6GhBmn27+cdvz7nUfxP11UCAjoNdy\u002ff7PsROU6EkDA5pyizYbZP3WP5\u002fSzXABAoMn+rLpYB8DYQy62HCadv2xnPrmqv74\u002f0hIQ0+JAw79+6VFLRo3QP26BfapgjIe\u002fR6ImIu6sE8DhiEXljWXdvwjiZvcVsRPAn2AfE\u002fpbAcDVRZvM1pMBwENF2Ga+y7u\u002fK+nhmYbw678+9UW5y1MLwCYK6ymsp9y\u002fFq8azcQpE8BuE7rWwE30v20sLzhTpNe\u002f3CC01S110L\u002fUQTISod3mv6\u002f0qg7TQfe\u002faIaoRITzB8D0qXmjX67Qv5tkjHR2w7A\u002fvJbaeWQ88b8AX+H4hQYRwGh\u002fKmM8qMw\u002fE1iHVNEX0L84HTCGK3fnv6b49GsVPfC\u002fafStPmI\u002f1L8W\u002fFG1ShLtv07z3683C8y\u002fTMNi1yUQAkDUOfhaR1nIP6aSh+2p5AHAk6qqqqqq+r\u002fGIaVhv+3uP\u002f3VxWySp7w\u002fG0i85Rqz+r\u002fAJN\u002fHavb+vwpCCCGEEPI\u002f+8XtfciWC8Ae8PQzxevkv+NdFdpC0grA+xmurLSn8L8syWYStAbtP4bg9cdJD+C\u002fBBx6WTWEyz\u002flulrA4jflv1zUGshJ5hDAWhkJlN44CUAbb4d1bW0GwEXDe4LomOA\u002fAqD6beTosj\u002fCTCDzgGG6v50v5k0k9OO\u002fFH7mPQ8p8D9CrFjQHCqmv4wdaWeg3ve\u002f34uPqX+85D\u002fIGCS7azbWvwip5Lws4uM\u002fLBPOHhPOAMAkAw97pmLmv9Zi9ZopOuW\u002fGGZTrbHr679wZTsZsKfHP3WfKuLPvABASZKCGpvI07\u002f65kXxrL+jv7KdCjBmjuc\u002fjoODW8F8yr\u002f3OgyCJwYRQJ3MB7dgquW\u002fWKbytSzgzL9poeV4htTpvzFGuzTgx\u002fK\u002fbBE13M6Nyj+5l7zppMiuv7+P0\u002fB9N+g\u002fi78TEKTAIUBN+HhpnKL0vzDEgvCJ+8i\u002fSGaVssFKv78C+2g\u002f2CbCv1Q7KkwX\u002fuK\u002fHtCYy6CqCcCTumIHTLT0P6SEjT6FNb8\u002fQfSZ4JNoAcBo5y9XvpnNP5VLBVr6n+8\u002fC59esBxXA8BKQC7oHBHCP0xeb6M\u002fFNK\u002fm459GJ4aDcA8Qe+acLmwP5e1l7tjYrq\u002fIKbZd2n27b\u002fjljt98NkIQEFKCa3iShHA\u002f+TI+GH95r\u002fQNHfBX8XtvxRKySXGOgvAj5SedUafA0ANxy3QODkUwIWDlCZmwAfAwXig22jSoz8ArnGLYPL1P+Ze+vfDftI\u002fn4wDCwjV5L8waz3Mx7HtvxvHzurkT+S\u002fHaIFu4I0uT8oSicjwcfnv1C0N5Ii9\u002fK\u002fNDWwd0wNIsBnV85wuSMBwOVx0tyQBOy\u002ffMI75aUCA8CjtC9T9TWmP9QeaWXyBOw\u002f6PhxBV572L\u002fb8+ody6rUP9Ctj6MiN+M\u002fdDep09kg+T82Ms\u002fXz1D2P+IZGhoaGtq\u002fVlm4i6\u002fp4b8uBbUzbxzyvzYX9A6LTfo\u002fMqnCsYQM9D9NcRsijfgGwPJTjCoKN\u002fA\u002fq\u002f\u002f\u002f\u002f\u002f8v6z\u002fUwCPQT8ydP4aJim9xKek\u002fgXU4sWbt0z\u002fbq5dOybLnv69H8AVCGuG\u002fc5VYws1c6T\u002fDKDKvzGj5vy\u002fi+BnezhxAMO08cDL42D+4yer2zLTJP+8TrUq1Ad2\u002ft5al\u002fQAo\u002fz+ndyubPaPxP4m6L6fhRZa\u002fAPn\u002f\u002f\u002f\u002f\u002fnz+gzB0yd8gMwJtpZIkhge0\u002fEa4Z8oc4+r9+BLPOO8jbv2OxBbe8cwDAzPx\u002f1X3x4b+NnygJ2gz1P61DEcBYO9S\u002fIlSoQWt62L9oosxoEBIKQG9W75hN2+G\u002fISSU\u002fYDi8T\u002fsq8Ybfy+hPxvMfhEwuSZAbkhzOvY7AcCxGESxfs\u002fsP6PTE6XQi\u002fq\u002fyeV4noFb1T+55xPsE+yzv8pbDFbuO6k\u002fHNVpcpB5CcDSTMa\u002fhzL1P51ozbLJwdG\u002fEAxSO9M8McCP6hgk6HoEQOLA2f7HEAhA\u002f20s1cX1v79PFyhbHywFwCD243Go4u2\u002fK8ZHJtA76T88GKr3YUr3v3flLGc5y+m\u002fYpv3KS4ZDUDnURYgTnDBP+wMWrXEDwJAU6EKErQ84T\u002fBkeqoHyrTP7hT6lw3zve\u002fO7S6NXei9D\u002fiKB\u002fPbyMSQCuvFZr4VfI\u002fhwUc8xMeNMAW36PD+2\u002f\u002fvx4jlceSIgRAagYbI1sw078Gcpwi1c3kPw=="},"type":"histogram","xaxis":"x","yaxis":"y"},{"hovertemplate":"Alcistas: %{x}\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#3b82f6"},"name":"Alcistas (244)","orientation":"h","text":["244"],"textposition":"inside","x":[244],"y":["Market"],"type":"bar","xaxis":"x2","yaxis":"y2"},{"hovertemplate":"Sin cambio: %{x}\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#94a3b8"},"name":"Sin cambio (0)","orientation":"h","text":["0"],"textposition":"inside","x":[0],"y":["Market"],"type":"bar","xaxis":"x2","yaxis":"y2"},{"hovertemplate":"Bajistas: %{x}\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#f97316"},"name":"Bajistas (256)","orientation":"h","text":["256"],"textposition":"inside","x":[256],"y":["Market"],"type":"bar","xaxis":"x2","yaxis":"y2"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"xaxis":{"anchor":"y","domain":[0.0,0.44],"title":{"text":"Cambio %"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"Cantidad"}},"xaxis2":{"anchor":"y2","domain":[0.56,1.0],"title":{"text":""},"showticklabels":false},"yaxis2":{"anchor":"x2","domain":[0.0,1.0],"title":{"text":""},"showticklabels":false},"annotations":[{"font":{"size":16},"showarrow":false,"text":"Distribuci\u00f3n de Cambios del D\u00eda","x":0.22,"xanchor":"center","xref":"paper","y":1.0,"yanchor":"bottom","yref":"paper"},{"font":{"size":16},"showarrow":false,"text":"Market Breadth","x":0.78,"xanchor":"center","xref":"paper","y":1.0,"yanchor":"bottom","yref":"paper"},{"showarrow":false,"text":"Media: -0.22%","x":-0.22175130173166388,"xanchor":"left","xref":"x","y":1,"yanchor":"top","yref":"y domain"}],"shapes":[{"line":{"color":"#1e293b","dash":"dash","width":2},"type":"line","x0":-0.22175130173166388,"x1":-0.22175130173166388,"xref":"x","y0":0,"y1":1,"yref":"y domain"},{"line":{"color":"#f97316","dash":"dot","width":1.5},"type":"line","x0":-0.04962652439899086,"x1":-0.04962652439899086,"xref":"x","y0":0,"y1":1,"yref":"y domain"}],"font":{"family":"DM Sans, sans-serif"},"margin":{"l":40,"r":40,"t":60,"b":40},"barmode":"stack","height":400,"showlegend":true,"plot_bgcolor":"#f8fafc","paper_bgcolor":"#f8fafc"},                        {"displayModeBar": true, "displaylogo": false, "responsive": true}                    )                };            </script>        </div>
+    <div style="height:400px; width:100%;">                            <div id="breadth" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("breadth")) {                    Plotly.newPlot(                        "breadth",                        [{"hovertemplate":"Cambio: %{x:.2f}%\u003cbr\u003eCantidad: %{y}\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#3b82f6"},"name":"Frecuencia","nbinsx":45,"opacity":0.75,"x":{"dtype":"f8","bdata":"Q9whdt7bur\u002fmKCmiHQTdP3MtIhhRMO+\u002fd1zWPBmp9L8FBYgCs1kEQJDfM+smT8K\u002fz9vmOip74T\u002f2GhseBJHIP32HYdJFGuS\u002fE0yQ7s8y\u002fj8jvaz2KcPxP5wGcN6R\u002fvS\u002f7hKLbUkw6r8PrkFPhcPOvyN3VNtc\u002f\u002fc\u002fgSDTeQ3C4D9uRrU9m+8AQOzGPenNT86\u002fLoaxvdSu7j9OWIUYTMrzv4PMSqNHVOC\u002fCQMBq+NL2b9bu2ZOyUjuv1aqOYuuUug\u002fUMbPft4+9L+Fl+sopGPkv9NvWM2E7\u002fm\u002fVgf3q4z++7\u002f\u002fyx3p2Szhv0o5sOBnNPg\u002fpTFPqUZZ+b9yt0nxGJaXP7zRrSV\u002fBAHAvJnG7sNm8L+6vPKcUaW9PzwUQioPkQDAXVrwLu\u002fqnz8jfcm0nv7lv\u002fedPBCyD9s\u002fYKeCtz75BMBge+oDW8\u002fdv1Dk4yqa+Ou\u002faOOG3s6nFcBCtgju6cH7vwlWIgSwWfy\u002ffuU1dkZXzz\u002fyQOLbQeLLP8i9oFlsOwTAMQA0lcRL\u002fb8cAN7Y7TMGwJ2HpymqgMi\u002f9tzpshfj8L8mKnDd3WHnv6tVzNqaQdg\u002fDOK43uPU8r\u002f0mqgGiEjuv6hmQbXnZOo\u002fFQufH27n8T8cBknPhTT9PzmF\u002fdMyBg5AzT9YeOZbz7\u002fZ5T55UlTVv3NezHsYBwFAobM9ibg5G8DuCE4QoB3Nv5oDI8Kuwbm\u002fWVgV5gUq2L+btSs5RKUKwP17bcS69AZApAlq\u002fCNp9T\u002fwWJfHymX4vzjmeiMAuKu\u002fPMFz4LYKyj\u002fCDblKH9zgv7c9IEBmDP0\u002f1XA\u002fp6NY\u002fr+8CLNdCLPdP4w709+g2+W\u002fPUwpRsSMBkC47NUqhODGP1jBJGqSDyrAKL0TmFy+CcBY83+eOi34P6Or3QZlhQjA\u002f+6QlrveCkCdSIyqD+z3P5Vu693Og8Q\u002fHfXDUaYM2z\u002f8xl3+tZrTP92KbGnjiOe\u002fQRfWXyxAHUABTsK++xXtP2OA5AURavK\u002fzwGJcXBq2b+h7lsptCbqP3RjXrEPYr4\u002fQQ5W3PJm8z8w5U3R7WcHwIEKcxftHsW\u002fTO3l3\u002fZn5r9tgnl6HGS8P5sOqQnGW+m\u002fADiaCfqw8r8F4esRH5gDwENI9aXOquK\u002f7VS40IMh8L8IQ5UOYagzwAIi43dcffE\u002fhVQSKPLWtL82f56uiUL0P9fvRYeezak\u002fh0hmBFB\u002fy7\u002fZeTVhS+Tvv6WRcplRR\u002fC\u002f7hwaI0t9zD9QrOaaZ6nnP8eqsU8UPdS\u002fIlIJHJ601j\u002fzfZimA1flv3LH0l5NWvC\u002f+qn8Ldm+AcC0gg5EQe\u002fjv4h0P1h45vu\u002f2eZGzNEO3T8ghKGZwTzGv5zz4TSESuq\u002fc7qwu8IM3b+gjLkHvkL4v5WOUiFwvuI\u002fSAtT3vWh2T9y1GjPyxPov1stJ0SeHgdALgVWun5qAcA1oHgG1GruP4ENMe14U9S\u002fSMBUQjTDAEB8o0UMVdbhv0WbbLLJJvs\u002f8MuPUxfb7r8B6L8Dam\u002fHv1DQy+X8F\u002fu\u002f6bi\u002fKIZr\u002fb88oY4bJ9Oxv0MONDGNthDAeU9by5pgC8DCRRNkzWXJP5q\u002fTNwoyQDAwgDkGEXwpD\u002fIp6q91TLsv1LEXbK3wK6\u002fAjGEv\u002fMe4D8TAkXU+3X3PwRSLZxD7wHAPqjbQwYHM8C\u002fE+QwlozbP6dGWO5pBALAA2qRfErV1z9UnJPQ3Hn9P9vq2tMGtO0\u002fOv0a18Grzj\u002fHU8HuAIjmv+fK7EoPzP0\u002fImYj1vtk3T+gXoXJsWYgQBrO8sAHmfQ\u002fy7Bly5Yts79lfUNZxvfKP9ud+TRTvMs\u002fFSkg84QgCkB9sWkNgcsHwDZEtrlT6wPATCqzXOWU9b9f5j18jUD6v\u002fLtS6DghPo\u002f4VB4ogI2079aqng1mxj8P3P\u002fdQIBcOm\u002fxLEnHkZRqz8M1aRlgjX1v+mQaOs\u002fJApAqhR8yml79z+uvbjJAHTzv+HBBZfFzg9AdJFC01fF4j+\u002f4dU\u002f03PgP8IwAUPtt+6\u002fcjgRyR7A97+WH8lQr53uv11EoyqC3dq\u002fMxOLbUkw+j\u002frwzD34zPwP3CbS636ffo\u002flIqkJKk\u002f\u002fT8JPBhZltn2P8AehetRuALAwb0pzfYZ0j+AZMJ04dzzP\u002fr1ktLOCOw\u002flrJq0ryqDkC38H34Pnzfv7VFz75KpQNAfEgQqgz28L+Tp9a7JQX8P+hvWuF0k\u002fW\u002fDuIEau\u002fp778hkUggEJe6vwfGbEJAzci\u002fJDu7Uk\u002ft879C4Bdu7Y31v0ME6L+OffK\u002fL2Sw4Mg5AcAW7q7HdnHRP9axNO3Y7Pk\u002fKvlC+8\u002fEzL+mW2CcO1rhvwuTVY9SOvW\u002frUd9oljn0T\u002fQJ9xNW\u002fkIQCF1boiM1\u002fO\u002fDz77E6yTEEBKhxySLgDlv4VxWc46T+k\u002fpuHwqVZv178cyqFn9D8DwKjJeOGkEfM\u002fyR\u002fus3u8\u002fT+mroMwcPPCP6syXS4x+QHAdhzHcRzH8b+6GNWSUS3ZPxJIbpnvZwLAYpnbBr9D8D9qZhOpTowJQDqEIw1AOPK\u002fBCnN2zqby79JpVBPYbm9P9xHaRqxU9e\u002f8jv1QBRjA0Cp5VP36ijWv\u002f9ye0PWKTfAB3XxQa2R57+onBzCf1T9v2jRSTHsE+2\u002f9gpK7EwMDkC6GsNkzqzSv6pGi1c+EdO\u002fzqBBXtQ14j85So7eqpsYwCLsxE7sxO6\u002f4URo3YiQ7D972QGGczfkP9oZQumvFO4\u002fQ\u002fdJF5gA\u002fr8GPgFaf57wv6YVLcKug+6\u002fMu\u002fX2Kop+T9w6tTTg6IDwB9+RomfUQLA6TXWPMz2x789vXu7xtfxP6R\u002fZe\u002fsjizAKveNTmihzb\u002fdeL0X\u002fz2uv3oJnG8v7wXAt5NbPLnF878exHn1xPbpv\u002fN\u002fvmpNvAzAf7AaZyGjEcDZGd3LtkfFPx8066qMnOI\u002f1WFp0ffcxD9xQFqmSLoHwKCVYXXOruQ\u002fADQzMzMzs799VTgnT0fkP8B0raQu6QfAV7+4QYSJ+L8nszdR+OsEQF23F1iQ8\u002fq\u002flawpa8qa8r8GKpT2Si7lv\u002fijatBGGbe\u002fXoIZhMftA8DoLo5dQWEQwJUJdQ04pv4\u002fvYT6rZOt\u002fL8yBLDjTUQQwCRjx5CpaQrAMqotddLc5r+X3M17LJb8P\u002f7Vt7xIuPq\u002fxzEIkudwAkAJF4oF\u002fhIAQLNELHjXJNG\u002fFCHBe\u002fsQ8j8ERhdddNH1vxpFoxNxn+W\u002fuPRJn\u002fRJ\u002f7\u002fJlhcTydXJP1J\u002fEDpHqcC\u002fUuBmY8WM\u002fD\u002fOIzLBzvgOQHwVhg6Dkda\u002fvYbWfL\u002fQBcChOx+FiBznPw2esjTmZvc\u002fzaosTu284T\u002fcROkQNYO5P4ZT34TBqBDADn4Pm+BT1b+cezeP8VziPyGgbg6L39s\u002fWA590wIM+79hT\u002fGUUiwDwH0m6pDYUPK\u002fWze96U1v+b+VnINqgIr9P+pRW3NnrsW\u002f9nWM4lzH+D8UO9lt8\u002fjjv\u002fuqb7BoJeI\u002f80HNdeDwB8AM4YMPPvjgP064BXxvacw\u002fTlQ6Iwtn4b8AAAAAAAAAAB7Hyk5jWsC\u002fXRh3bYIrlL8MHY6in8TKPxsangJDgPO\u002fhW6Z7IK22T9cxXcey\u002fTvP3c8JODZxvq\u002fOzGHoZp\u002f5j9ekgJwfx\u002fsvz\u002f+wpCiGuK\u002fYqQOA\u002ftYAUDurElAPiPWP1Y0miyaOfK\u002fd4ZGeht83z+1bzeQzjCpP+64wMibl\u002fi\u002fS7fLVw\u002fCsT+cusTFSNL5v\u002f8WFGrqMdO\u002fzOLTXs8L8j+pFPmsG8wIQAe48YTvNu6\u002fyuXqpV91+r\u002fUzNroemruP91RZQXlhvm\u002fBZo7igcT878OJCvi4Nb\u002fP\u002fHp0XzFMeo\u002fVVY5LWhr57\u002f6H4wma4jpvzCESXUav\u002f+\u002f3saSBrpD9r+bciPRg5D4v4vGxxA\u002f3eY\u002fEHgsObc03z+I0EPoIfTgP\u002f79mUeLShhA\u002f1205\u002fNqCcD6YWlJuQ\u002fmvxo5rcwtfBvADPKxKWZK0b+uo6JUITMVQLxht6h6zwTA5O5\u002fy87s8r9QmYUP5Mv9vydPZRvxAvA\u002fKJ4iaQb38r\u002f+LEUzHrrOPwWhqMAMU+w\u002ffWgdtzu\u002f1D8GoTPj0IrKP0OBq\u002fOKng9AmiYxKe0i+b8ySYx3ujrbP8U3jwdlIsC\u002fFKy\u002flYZVDsCUzCp+j1TvP7FmU2xtBvc\u002fHv8km6+T2b+fw4\u002fXy1\u002f0vxI\u002fiwa\u002fbuG\u002f\u002fr1HFszcFcDRW+0RW+2xv4HI59YH9gJA3rNdjqL8AECEswbF0x73v6\u002fUBiN9+Q\u002fAD250sZMHEcA5GHDGtUgQwA44qi7R2++\u002ffzQhL2wV9D+uMJcCUU0GQBlxhJ6Z2wFAbW0e1mmG8T8mk07cYIHsvxVJGcst2wvAGBPwnU4\u002f4z+k+U1mp1QQQLb8ik\u002fNBQLAntZbUIbVAkAmRiEF+O\u002fYPyV7L+4oqKi\u002fD6b7xU\u002fSHsAi1HIiV80IwGE6uAcxn++\u002fySxyaKE96j9uBdkI4oTovz3VkRgLJvi\u002frTv06k848L9zC78aE+nxP3OF1jouW\u002fU\u002fTPCpSUX\u002f7r9l4pIhWEfbv\u002fgglYU6jJE\u002fvvmjNFVIAEDWxZKutoP\u002fv0CTeq6lEwXAlrK6ee5WCMBSguCIxZj0vy1yrYTrE\u002fa\u002fKr41clRo4b+pqqqqqhISwApr5dd23gFAkgLmtxym7r+NmR2498oAQBPSLrD+hBpABmdciwQ1FcBR6ovfDVDcv0J4JhRsLOE\u002fw0Cd1AMl4r\u002fnvZR9pE78v0AdoxREnBdAG20BUuvaG8Ai73fG1B3mv3SR1zhtRgHAQs1X1Zae5L8lmHPycvEDwLHPxltMuvC\u002fsHhUOy1VCcA1CSK7JyQDwDfHzcjYm+8\u002fTXHnpr0lFkAQfi1VBm77v+rq01YCzPI\u002fN25hfcyfFMDQASWRCTmyP5AJ1aV8PwDA9rlB\u002fSwe6b+x81PVIVkFwKt4TbfNq9+\u002fUZ5A2HD9779GzH3l5rvyvzSFoBazweG\u002fCLHTKnY4qr+34LN6ODP3vylmGStu+uy\u002fEOaMOWPO2L+yrClrypriP3d0\u002fDfBlBVAW6IezkBl\u002fT93iE+vYgbNv6RXMM5Ys+W\u002fy5KTqPYC1r+E7CEjbHL0Py5wI3Ye4LS\u002f4VWbWKfsBsD36m+JaZHvv7xxMog8cOW\u002f3RTto69PCsAVlzJX564AwMM24Keb2QHAofOUALHc9D+x3h2xb0vrv57k08ZdABHAzsOGie7B+L9WG8dxHMfBv8cuoBXYUds\u002fiXnHzV5m9D\u002fA9o9IG9n6PznxhRm2bPu\u002fC2FSQzQl1j8AAAAAAAAAAMaYdiykvQnAbJZUtA4V8r9utmzZsmULQHJcGuo2qcy\u002fRxhSOdZJ+L+8H6byndrzvzuNqs9FIRJAFF41HEIq+L8gD1xFO1MSwM76ivsgP9O\u002fAhTVg0beCcBowvyuFjcbwA=="},"type":"histogram","xaxis":"x","yaxis":"y"},{"hovertemplate":"Alcistas: %{x}\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#3b82f6"},"name":"Alcistas (200)","orientation":"h","text":["200"],"textposition":"inside","x":[200],"y":["Market"],"type":"bar","xaxis":"x2","yaxis":"y2"},{"hovertemplate":"Sin cambio: %{x}\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#94a3b8"},"name":"Sin cambio (2)","orientation":"h","text":["2"],"textposition":"inside","x":[2],"y":["Market"],"type":"bar","xaxis":"x2","yaxis":"y2"},{"hovertemplate":"Bajistas: %{x}\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#f97316"},"name":"Bajistas (298)","orientation":"h","text":["298"],"textposition":"inside","x":[298],"y":["Market"],"type":"bar","xaxis":"x2","yaxis":"y2"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"xaxis":{"anchor":"y","domain":[0.0,0.44],"title":{"text":"Cambio %"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"Cantidad"}},"xaxis2":{"anchor":"y2","domain":[0.56,1.0],"title":{"text":""},"showticklabels":false},"yaxis2":{"anchor":"x2","domain":[0.0,1.0],"title":{"text":""},"showticklabels":false},"annotations":[{"font":{"size":16},"showarrow":false,"text":"Distribuci\u00f3n de Cambios del D\u00eda","x":0.22,"xanchor":"center","xref":"paper","y":1.0,"yanchor":"bottom","yref":"paper"},{"font":{"size":16},"showarrow":false,"text":"Market Breadth","x":0.78,"xanchor":"center","xref":"paper","y":1.0,"yanchor":"bottom","yref":"paper"},{"showarrow":false,"text":"Media: -0.50%","x":-0.4959988665026662,"xanchor":"left","xref":"x","y":1,"yanchor":"top","yref":"y domain"}],"shapes":[{"line":{"color":"#1e293b","dash":"dash","width":2},"type":"line","x0":-0.4959988665026662,"x1":-0.4959988665026662,"xref":"x","y0":0,"y1":1,"yref":"y domain"},{"line":{"color":"#f97316","dash":"dot","width":1.5},"type":"line","x0":-0.3332580422545839,"x1":-0.3332580422545839,"xref":"x","y0":0,"y1":1,"yref":"y domain"}],"font":{"family":"DM Sans, sans-serif"},"margin":{"l":40,"r":40,"t":60,"b":40},"barmode":"stack","height":400,"showlegend":true,"plot_bgcolor":"#f8fafc","paper_bgcolor":"#f8fafc"},                        {"displayModeBar": true, "displaylogo": false, "responsive": true}                    )                };            </script>        </div>
 </body>
 </html></div>
     <div class="explainer">
@@ -519,7 +519,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="chart-wrap"><html>
 <head><meta charset="utf-8" /></head>
 <body>
-    <div style="height:600px; width:100%;">                            <div id="movers" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("movers")) {                    Plotly.newPlot(                        "movers",                        [{"hovertemplate":"\u003cb\u003e%{y}\u003c\u002fb\u003e\u003cbr\u003eCambio: %{x:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":["#3b82f6","#3b82f6","#3b82f6","#3b82f6","#3b82f6","#3b82f6","#3b82f6","#3b82f6","#3b82f6","#3b82f6","#3b82f6","#3b82f6","#3b82f6","#3b82f6","#3b82f6","#3b82f6","#3b82f6","#3b82f6","#3b82f6","#3b82f6"]},"name":"Ganadores","opacity":0.85,"orientation":"h","x":{"dtype":"f8","bdata":"G8x+ETC5JkCLvxMQpMAhQC\u002fi+BnezhxA0ydQvHfZGkBM9p8ni0AaQL4kn8jjihZACvii3cdsE0BtwQxL3aoSQNPJ+uAGRBJAf7PsROU6EkDiKB\u002fPbyMSQPc6DIInBhFAPw7fz1wCEEBvE5fLwCsNQGKb9ykuGQ1AVahKrz2TDEAXjqL9D44MQFzAWgFrBQxAxK8NVwyFC0A0ZxDlvnoLQA=="},"y":["CRL \u00b7 Commercial Services","IFF \u00b7 Consumer Non-Durables","AIZ \u00b7 Finance","NEM \u00b7 Non-Energy Minerals","BKNG \u00b7 Consumer Services","MCK \u00b7 Distribution Services","LLY \u00b7 Health Technology","MAR \u00b7 Consumer Services","AMGN \u00b7 Health Technology","CNC \u00b7 Health Services","PSKY \u00b7 Consumer Services","FICO \u00b7 Commercial Services","HLT \u00b7 Consumer Services","DIS \u00b7 Consumer Services","WYNN \u00b7 Consumer Services","COR \u00b7 Distribution Services","ANET \u00b7 Electronic Technology","ELV \u00b7 Health Services","IQV \u00b7 Health Technology","NVDA \u00b7 Electronic Technology"],"type":"bar","xaxis":"x","yaxis":"y"},{"hovertemplate":"\u003cb\u003e%{y}\u003c\u002fb\u003e\u003cbr\u003eCambio: %{x:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":["#f97316","#f97316","#f97316","#f97316","#f97316","#f97316","#f97316","#f97316","#f97316","#f97316","#f97316","#f97316","#f97316","#f97316","#f97316","#f97316","#f97316","#f97316","#f97316","#f97316"]},"name":"Perdedores","opacity":0.85,"orientation":"h","x":{"dtype":"f8","bdata":"hwUc8xMeNMAQDFI70zwxwDQ1sHdMDSLAWWwEQEwtHMDO4WkNUeQZwLzTmTuduRfAqg4GS6WbFcA8qrBkP24VwFIQbVtrKxXAGvWFxHhNFMANxy3QODkUwAjiZvcVsRPAR6ImIu6sE8AWrxrNxCkTwJoQw4ScAxPADjq45kbMEcBBSgmt4koRwABf4fiFBhHAXNQayEnmEMB30wEXVWMQwA=="},"y":["PODD \u00b7 Health Technology","DVA \u00b7 Health Services","CDW \u00b7 Technology Services","AMD \u00b7 Electronic Technology","EOG \u00b7 Energy Minerals","HONA \u00b7 Electronic Technology","SNDK \u00b7 Electronic Technology","WDC \u00b7 Electronic Technology","UBER \u00b7 Transportation","CVS \u00b7 Retail Trade","SBAC \u00b7 Finance","DXCM \u00b7 Health Technology","CCI \u00b7 Finance","ON \u00b7 Electronic Technology","MPC \u00b7 Energy Minerals","DVN \u00b7 Energy Minerals","SMCI \u00b7 Electronic Technology","Q \u00b7 Electronic Technology","ECHO \u00b7 Communications","AMT \u00b7 Finance"],"type":"bar","xaxis":"x2","yaxis":"y2"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"xaxis":{"anchor":"y","domain":[0.0,0.45],"title":{"text":"Cambio %"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"autorange":"reversed"},"xaxis2":{"anchor":"y2","domain":[0.55,1.0],"title":{"text":"Cambio %"}},"yaxis2":{"anchor":"x2","domain":[0.0,1.0],"autorange":"reversed"},"annotations":[{"font":{"size":16},"showarrow":false,"text":"Top 20 Ganadores","x":0.225,"xanchor":"center","xref":"paper","y":1.0,"yanchor":"bottom","yref":"paper"},{"font":{"size":16},"showarrow":false,"text":"Top 20 Perdedores","x":0.775,"xanchor":"center","xref":"paper","y":1.0,"yanchor":"bottom","yref":"paper"}],"shapes":[{"line":{"color":"#334155","width":0.8},"type":"line","x0":0,"x1":0,"xref":"x","y0":0,"y1":1,"yref":"y domain"},{"line":{"color":"#334155","width":0.8},"type":"line","x0":0,"x1":0,"xref":"x2","y0":0,"y1":1,"yref":"y2 domain"}],"font":{"family":"DM Sans, sans-serif","size":9},"margin":{"l":180,"r":180,"t":60,"b":40},"height":600,"showlegend":false,"plot_bgcolor":"#f8fafc","paper_bgcolor":"#f8fafc"},                        {"displayModeBar": true, "displaylogo": false, "responsive": true}                    )                };            </script>        </div>
+    <div style="height:600px; width:100%;">                            <div id="movers" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("movers")) {                    Plotly.newPlot(                        "movers",                        [{"hovertemplate":"\u003cb\u003e%{y}\u003c\u002fb\u003e\u003cbr\u003eCambio: %{x:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":["#3b82f6","#3b82f6","#3b82f6","#3b82f6","#3b82f6","#3b82f6","#3b82f6","#3b82f6","#3b82f6","#3b82f6","#3b82f6","#3b82f6","#3b82f6","#3b82f6","#3b82f6","#3b82f6","#3b82f6","#3b82f6","#3b82f6","#3b82f6"]},"name":"Ganadores","opacity":0.85,"orientation":"h","x":{"dtype":"f8","bdata":"oF6FybFmIEBBF9ZfLEAdQBPSLrD+hBpA\u002fv2ZR4tKGEBAHaMURJwXQE1x56a9JRZAd3T8N8GUFUCuo6JUITMVQDuNqs9FIRJADz77E6yTEECk+U1mp1QQQOHBBZfFzg9AQ4Gr84qeD0DOIzLBzvgOQJayatK8qg5A9gpK7EwMDkA5hf3TMgYOQG62bNmyZQtA\u002f+6QlrveCkDpkGjrPyQKQA=="},"y":["MSI \u00b7 Electronic Technology","PH \u00b7 Producer Manufacturing","LDOS \u00b7 Technology Services","FOX \u00b7 Consumer Services","PTC \u00b7 Technology Services","ALB \u00b7 Process Industries","APA \u00b7 Energy Minerals","FOXA \u00b7 Consumer Services","PODD \u00b7 Health Technology","OXY \u00b7 Energy Minerals","LYB \u00b7 Process Industries","ALL \u00b7 Finance","RL \u00b7 Consumer Non-Durables","ZTS \u00b7 Health Technology","MET \u00b7 Finance","BDX \u00b7 Health Technology","TMUS \u00b7 Communications","PSKY \u00b7 Consumer Services","UBER \u00b7 Transportation","BSX \u00b7 Health Technology"],"type":"bar","xaxis":"x","yaxis":"y"},{"hovertemplate":"\u003cb\u003e%{y}\u003c\u002fb\u003e\u003cbr\u003eCambio: %{x:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":["#f97316","#f97316","#f97316","#f97316","#f97316","#f97316","#f97316","#f97316","#f97316","#f97316","#f97316","#f97316","#f97316","#f97316","#f97316","#f97316","#f97316","#f97316","#f97316","#f97316"]},"name":"Perdedores","opacity":0.85,"orientation":"h","x":{"dtype":"f8","bdata":"\u002f3J7Q9YpN8AIQ5UOYagzwD6o20MGBzPApH9l7+yOLMBYwSRqkg8qwA+m+8VP0h7AG20BUuvaG8AaOa3MLXwbwKGzPYm4ORvAaML8rhY3G8A5So7eqpsYwP69RxbM3BXAaOOG3s6nFcAGZ1yLBDUVwDduYX3MnxTAIA9cRTtTEsCpqqqqqhISwH+wGmchoxHAD250sZMHEcCe5NPGXQARwA=="},"y":["HONA \u00b7 Electronic Technology","APP \u00b7 Technology Services","DDOG \u00b7 Technology Services","AXON \u00b7 Electronic Technology","WDC \u00b7 Electronic Technology","VTRS \u00b7 Health Technology","HST \u00b7 Finance","TPL \u00b7 Miscellaneous","SNDK \u00b7 Electronic Technology","TTD \u00b7 Technology Services","XYZ \u00b7 Commercial Services","FICO \u00b7 Commercial Services","DELL \u00b7 Electronic Technology","BBY \u00b7 Retail Trade","SOLV \u00b7 Health Services","NCLH \u00b7 Consumer Services","CHRW \u00b7 Transportation","MCHP \u00b7 Electronic Technology","MRNA \u00b7 Health Technology","DVA \u00b7 Health Services"],"type":"bar","xaxis":"x2","yaxis":"y2"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"xaxis":{"anchor":"y","domain":[0.0,0.45],"title":{"text":"Cambio %"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"autorange":"reversed"},"xaxis2":{"anchor":"y2","domain":[0.55,1.0],"title":{"text":"Cambio %"}},"yaxis2":{"anchor":"x2","domain":[0.0,1.0],"autorange":"reversed"},"annotations":[{"font":{"size":16},"showarrow":false,"text":"Top 20 Ganadores","x":0.225,"xanchor":"center","xref":"paper","y":1.0,"yanchor":"bottom","yref":"paper"},{"font":{"size":16},"showarrow":false,"text":"Top 20 Perdedores","x":0.775,"xanchor":"center","xref":"paper","y":1.0,"yanchor":"bottom","yref":"paper"}],"shapes":[{"line":{"color":"#334155","width":0.8},"type":"line","x0":0,"x1":0,"xref":"x","y0":0,"y1":1,"yref":"y domain"},{"line":{"color":"#334155","width":0.8},"type":"line","x0":0,"x1":0,"xref":"x2","y0":0,"y1":1,"yref":"y2 domain"}],"font":{"family":"DM Sans, sans-serif","size":9},"margin":{"l":180,"r":180,"t":60,"b":40},"height":600,"showlegend":false,"plot_bgcolor":"#f8fafc","paper_bgcolor":"#f8fafc"},                        {"displayModeBar": true, "displaylogo": false, "responsive": true}                    )                };            </script>        </div>
 </body>
 </html></div>
     <div class="explainer">
@@ -538,7 +538,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <html>
 <head><meta charset="utf-8" /></head>
 <body>
-    <div style="height:500px; width:100%;">                            <div id="volume" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("volume")) {                    Plotly.newPlot(                        "volume",                        [{"customdata":{"dtype":"f8","bdata":"pvk6CuUf+T+Jui+n4UWWv476mUiYb\u002fe\u002fFbqC3N6W8z9gPFYwQmbvP\u002f1GQvAmrfM\u002finvz+0lyzb\u002fd59EYVUgCQKAiLBldx\u002fM\u002fUGs5hBOI7b+iGp\u002fhPOMFwOZe+vfDftI\u002f4wIr2gyvAcBRl8uM280EwKeqDqim8ue\u002fE9QQ0QVlhT9ZbARATC0cwFVztREqftG\u002f7KvGG38voT91QkAhoBDwPw=="},"hovertemplate":"\u003cb\u003e%{y}\u003c\u002fb\u003e\u003cbr\u003eVol Ratio: %{x:.2f}x\u003cbr\u003eCambio: %{customdata:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":["#3b82f6","#f97316","#f97316","#3b82f6","#3b82f6","#3b82f6","#f97316","#3b82f6","#3b82f6","#f97316","#f97316","#3b82f6","#f97316","#f97316","#f97316","#3b82f6","#f97316","#f97316","#3b82f6","#3b82f6"]},"opacity":0.85,"orientation":"h","x":{"dtype":"f8","bdata":"pHA9Ctdfe0DhehSuR3F7QOF6FK5H2XtACtejcD0WfEBcj8L1KIB8QArXo3A9qnxA16NwPQrffEB7FK5H4f58QLgehetRdH1AuB6F61F4fUCuR+F6FKZ9QD0K16NwsX1AzczMzMyIfkD2KFyPwsF\u002fQB+F61G4MIBAFK5H4XqSgEDD9Shcj7CAQHsUrkfhKoFAFK5H4XqYgUB7FK5H4dyEQA=="},"y":["SCHW \u00b7 Finance (+1.57%)","GL \u00b7 Finance (-0.02%)","AEP \u00b7 Utilities (-1.46%)","BNY \u00b7 Finance (+1.22%)","SBUX \u00b7 Consumer Services (+0.98%)","PLD \u00b7 Finance (+1.23%)","PEP \u00b7 Consumer Non-Durables (-0.23%)","EMR \u00b7 Electronic Technology (+2.29%)","UNH \u00b7 Health Services (+1.24%)","WAB \u00b7 Producer Manufacturing (-0.92%)","PRU \u00b7 Finance (-2.74%)","ESS \u00b7 Finance (+0.29%)","TTWO \u00b7 Technology Services (-2.21%)","PLTR \u00b7 Technology Services (-2.60%)","DUK \u00b7 Utilities (-0.75%)","MRSH \u00b7 Finance (+0.01%)","AMD \u00b7 Electronic Technology (-7.04%)","UNP \u00b7 Transportation (-0.27%)","SJM \u00b7 Consumer Non-Durables (+0.03%)","NDAQ \u00b7 Finance (+1.00%)"],"type":"bar"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"shapes":[{"line":{"color":"#475569","dash":"dash","width":1},"type":"line","x0":2.0,"x1":2.0,"xref":"x","y0":0,"y1":1,"yref":"y domain"}],"annotations":[{"showarrow":false,"text":"Umbral 2x","x":2.0,"xanchor":"left","xref":"x","y":1,"yanchor":"top","yref":"y domain"}],"font":{"family":"DM Sans, sans-serif","size":9},"margin":{"l":300,"r":40,"t":60,"b":40},"title":{"text":"Acciones con Volumen Inusual"},"xaxis":{"title":{"text":"Ratio Volumen \u002f Promedio 30 ruedas"}},"height":500,"plot_bgcolor":"#f8fafc","paper_bgcolor":"#f8fafc","showlegend":false,"yaxis":{"autorange":"reversed"}},                        {"displayModeBar": true, "displaylogo": false, "responsive": true}                    )                };            </script>        </div>
+    <div style="height:500px; width:100%;">                            <div id="volume" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("volume")) {                    Plotly.newPlot(                        "volume",                        [{"customdata":{"dtype":"f8","bdata":"2535NFO8yz9SfxA6R6nAvzjmeiMAuKu\u002fQ9whdt7bur8cBknPhTT9P\u002fN9mKYDV+W\u002fE0yQ7s8y\u002fj9WqjmLrlLoPyJmI9b7ZN0\u002fqRT5rBvMCEBOWIUYTMrzv+4IThCgHc2\u002fWMEkapIPKsBdWvAu7+qfP5wGcN6R\u002fvS\u002fzT9YeOZbz7+lMU+pRln5v6GzPYm4ORvAI3dU21z\u002f9z+zRCx41yTRvw=="},"hovertemplate":"\u003cb\u003e%{y}\u003c\u002fb\u003e\u003cbr\u003eVol Ratio: %{x:.2f}x\u003cbr\u003eCambio: %{customdata:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":["#3b82f6","#f97316","#f97316","#f97316","#3b82f6","#f97316","#3b82f6","#3b82f6","#3b82f6","#3b82f6","#f97316","#f97316","#f97316","#3b82f6","#f97316","#f97316","#f97316","#f97316","#3b82f6","#f97316"]},"opacity":0.85,"orientation":"h","x":{"dtype":"f8","bdata":"exSuR+FCfUCPwvUoXEN9QArXo3A9Tn1A4XoUrkeJfkDNzMzMzPB+QGZmZmZmMIBAexSuR+E0gEBSuB6F63eAQKRwPQrXtYBArkfhehT+gEBSuB6F6xeBQIXrUbgef4FAcT0K16O2gUDhehSuRz2CQFK4HoXreYJA7FG4HoWLgkAUrkfhem6DQArXo3A9lIRAAAAAAAC6hUD2KFyPwkeNQA=="},"y":["AON \u00b7 Finance (+0.22%)","NTRS \u00b7 Finance (-0.13%)","UNP \u00b7 Transportation (-0.05%)","NVDA \u00b7 Electronic Technology (-0.10%)","STX \u00b7 Electronic Technology (+1.83%)","MCK \u00b7 Distribution Services (-0.67%)","LLY \u00b7 Health Technology (+1.89%)","COST \u00b7 Retail Trade (+0.76%)","REGN \u00b7 Health Technology (+0.46%)","FSLR \u00b7 Electronic Technology (+3.10%)","INTC \u00b7 Electronic Technology (-1.24%)","MRVL \u00b7 Electronic Technology (-0.23%)","WDC \u00b7 Electronic Technology (-13.03%)","MRK \u00b7 Health Technology (+0.03%)","MU \u00b7 Electronic Technology (-1.31%)","PEP \u00b7 Consumer Non-Durables (-0.24%)","PLTR \u00b7 Technology Services (-1.58%)","SNDK \u00b7 Electronic Technology (-6.81%)","AMD \u00b7 Electronic Technology (+1.50%)","WEC \u00b7 Utilities (-0.27%)"],"type":"bar"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"shapes":[{"line":{"color":"#475569","dash":"dash","width":1},"type":"line","x0":2.0,"x1":2.0,"xref":"x","y0":0,"y1":1,"yref":"y domain"}],"annotations":[{"showarrow":false,"text":"Umbral 2x","x":2.0,"xanchor":"left","xref":"x","y":1,"yanchor":"top","yref":"y domain"}],"font":{"family":"DM Sans, sans-serif","size":9},"margin":{"l":300,"r":40,"t":60,"b":40},"title":{"text":"Acciones con Volumen Inusual"},"xaxis":{"title":{"text":"Ratio Volumen \u002f Promedio 30 ruedas"}},"height":500,"plot_bgcolor":"#f8fafc","paper_bgcolor":"#f8fafc","showlegend":false,"yaxis":{"autorange":"reversed"}},                        {"displayModeBar": true, "displaylogo": false, "responsive": true}                    )                };            </script>        </div>
 </body>
 </html>
       </div>
@@ -555,164 +555,164 @@ document.addEventListener('DOMContentLoaded', function() {
   </thead>
   <tbody>
     <tr>
-      <td>NDAQ</td>
-      <td>Finance</td>
-      <td><span class="positive">+1.00%</span></td>
-      <td>3231878</td>
-      <td>4841</td>
-      <td>667.61</td>
-    </tr>
-    <tr>
-      <td>SJM</td>
-      <td>Consumer Non-Durables</td>
-      <td><span class="positive">+0.03%</span></td>
-      <td>678827</td>
-      <td>1205</td>
-      <td>563.06</td>
-    </tr>
-    <tr>
-      <td>UNP</td>
-      <td>Transportation</td>
+      <td>WEC</td>
+      <td>Utilities</td>
       <td><span class="negative">-0.27%</span></td>
-      <td>2586612</td>
-      <td>4708</td>
-      <td>549.36</td>
+      <td>3664860</td>
+      <td>3911</td>
+      <td>936.97</td>
     </tr>
     <tr>
       <td>AMD</td>
       <td>Electronic Technology</td>
-      <td><span class="negative">-7.04%</span></td>
-      <td>49461041</td>
-      <td>92611</td>
-      <td>534.07</td>
+      <td><span class="positive">+1.50%</span></td>
+      <td>24664622</td>
+      <td>35475</td>
+      <td>695.25</td>
     </tr>
     <tr>
-      <td>MRSH</td>
-      <td>Finance</td>
-      <td><span class="positive">+0.01%</span></td>
-      <td>2097289</td>
-      <td>3954</td>
-      <td>530.31</td>
-    </tr>
-    <tr>
-      <td>DUK</td>
-      <td>Utilities</td>
-      <td><span class="negative">-0.75%</span></td>
-      <td>6787284</td>
-      <td>13100</td>
-      <td>518.09</td>
+      <td>SNDK</td>
+      <td>Electronic Technology</td>
+      <td><span class="negative">-6.81%</span></td>
+      <td>19146002</td>
+      <td>29073</td>
+      <td>658.53</td>
     </tr>
     <tr>
       <td>PLTR</td>
       <td>Technology Services</td>
-      <td><span class="negative">-2.60%</span></td>
-      <td>63348989</td>
-      <td>124676</td>
-      <td>508.11</td>
-    </tr>
-    <tr>
-      <td>TTWO</td>
-      <td>Technology Services</td>
-      <td><span class="negative">-2.21%</span></td>
-      <td>2108051</td>
-      <td>4314</td>
-      <td>488.55</td>
-    </tr>
-    <tr>
-      <td>ESS</td>
-      <td>Finance</td>
-      <td><span class="positive">+0.29%</span></td>
-      <td>259512</td>
-      <td>546</td>
-      <td>475.09</td>
-    </tr>
-    <tr>
-      <td>PRU</td>
-      <td>Finance</td>
-      <td><span class="negative">-2.74%</span></td>
-      <td>4944229</td>
-      <td>10422</td>
-      <td>474.38</td>
-    </tr>
-    <tr>
-      <td>WAB</td>
-      <td>Producer Manufacturing</td>
-      <td><span class="negative">-0.92%</span></td>
-      <td>588651</td>
-      <td>1248</td>
-      <td>471.52</td>
-    </tr>
-    <tr>
-      <td>UNH</td>
-      <td>Health Services</td>
-      <td><span class="positive">+1.24%</span></td>
-      <td>5397131</td>
-      <td>11452</td>
-      <td>471.27</td>
-    </tr>
-    <tr>
-      <td>EMR</td>
-      <td>Electronic Technology</td>
-      <td><span class="positive">+2.29%</span></td>
-      <td>5250792</td>
-      <td>11318</td>
-      <td>463.93</td>
+      <td><span class="negative">-1.58%</span></td>
+      <td>41738927</td>
+      <td>67125</td>
+      <td>621.81</td>
     </tr>
     <tr>
       <td>PEP</td>
       <td>Consumer Non-Durables</td>
+      <td><span class="negative">-0.24%</span></td>
+      <td>8510215</td>
+      <td>14340</td>
+      <td>593.44</td>
+    </tr>
+    <tr>
+      <td>MU</td>
+      <td>Electronic Technology</td>
+      <td><span class="negative">-1.31%</span></td>
+      <td>35755155</td>
+      <td>60475</td>
+      <td>591.24</td>
+    </tr>
+    <tr>
+      <td>MRK</td>
+      <td>Health Technology</td>
+      <td><span class="positive">+0.03%</span></td>
+      <td>7052054</td>
+      <td>12082</td>
+      <td>583.66</td>
+    </tr>
+    <tr>
+      <td>WDC</td>
+      <td>Electronic Technology</td>
+      <td><span class="negative">-13.03%</span></td>
+      <td>16185780</td>
+      <td>28554</td>
+      <td>566.83</td>
+    </tr>
+    <tr>
+      <td>MRVL</td>
+      <td>Electronic Technology</td>
       <td><span class="negative">-0.23%</span></td>
-      <td>6252666</td>
-      <td>13535</td>
-      <td>461.94</td>
+      <td>16794253</td>
+      <td>29995</td>
+      <td>559.89</td>
     </tr>
     <tr>
-      <td>PLD</td>
+      <td>INTC</td>
+      <td>Electronic Technology</td>
+      <td><span class="negative">-1.24%</span></td>
+      <td>78060570</td>
+      <td>142708</td>
+      <td>546.99</td>
+    </tr>
+    <tr>
+      <td>FSLR</td>
+      <td>Electronic Technology</td>
+      <td><span class="positive">+3.10%</span></td>
+      <td>3666912</td>
+      <td>6743</td>
+      <td>543.76</td>
+    </tr>
+    <tr>
+      <td>REGN</td>
+      <td>Health Technology</td>
+      <td><span class="positive">+0.46%</span></td>
+      <td>783950</td>
+      <td>1466</td>
+      <td>534.73</td>
+    </tr>
+    <tr>
+      <td>COST</td>
+      <td>Retail Trade</td>
+      <td><span class="positive">+0.76%</span></td>
+      <td>2116850</td>
+      <td>4016</td>
+      <td>526.99</td>
+    </tr>
+    <tr>
+      <td>LLY</td>
+      <td>Health Technology</td>
+      <td><span class="positive">+1.89%</span></td>
+      <td>3422138</td>
+      <td>6598</td>
+      <td>518.61</td>
+    </tr>
+    <tr>
+      <td>MCK</td>
+      <td>Distribution Services</td>
+      <td><span class="negative">-0.67%</span></td>
+      <td>1607598</td>
+      <td>3103</td>
+      <td>518.05</td>
+    </tr>
+    <tr>
+      <td>STX</td>
+      <td>Electronic Technology</td>
+      <td><span class="positive">+1.83%</span></td>
+      <td>5561788</td>
+      <td>11234</td>
+      <td>495.05</td>
+    </tr>
+    <tr>
+      <td>NVDA</td>
+      <td>Electronic Technology</td>
+      <td><span class="negative">-0.10%</span></td>
+      <td>113899140</td>
+      <td>233120</td>
+      <td>488.58</td>
+    </tr>
+    <tr>
+      <td>UNP</td>
+      <td>Transportation</td>
+      <td><span class="negative">-0.05%</span></td>
+      <td>1818465</td>
+      <td>3878</td>
+      <td>468.89</td>
+    </tr>
+    <tr>
+      <td>NTRS</td>
       <td>Finance</td>
-      <td><span class="positive">+1.23%</span></td>
-      <td>13253744</td>
-      <td>28897</td>
-      <td>458.64</td>
+      <td><span class="negative">-0.13%</span></td>
+      <td>1122173</td>
+      <td>2396</td>
+      <td>468.21</td>
     </tr>
     <tr>
-      <td>SBUX</td>
-      <td>Consumer Services</td>
-      <td><span class="positive">+0.98%</span></td>
-      <td>7851799</td>
-      <td>17218</td>
-      <td>456.01</td>
-    </tr>
-    <tr>
-      <td>BNY</td>
+      <td>AON</td>
       <td>Finance</td>
-      <td><span class="positive">+1.22%</span></td>
-      <td>3032282</td>
-      <td>6747</td>
-      <td>449.39</td>
-    </tr>
-    <tr>
-      <td>AEP</td>
-      <td>Utilities</td>
-      <td><span class="negative">-1.46%</span></td>
-      <td>7311505</td>
-      <td>16408</td>
-      <td>445.58</td>
-    </tr>
-    <tr>
-      <td>GL</td>
-      <td>Finance</td>
-      <td><span class="negative">-0.02%</span></td>
-      <td>654288</td>
-      <td>1490</td>
-      <td>439.08</td>
-    </tr>
-    <tr>
-      <td>SCHW</td>
-      <td>Finance</td>
-      <td><span class="positive">+1.57%</span></td>
-      <td>11677578</td>
-      <td>26661</td>
-      <td>437.99</td>
+      <td><span class="positive">+0.22%</span></td>
+      <td>1140039</td>
+      <td>2435</td>
+      <td>468.18</td>
     </tr>
   </tbody>
 </table></div>
@@ -724,7 +724,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
 
   <footer class="page-footer">
-    Datos: TradingView Screener &nbsp;·&nbsp; 2026-08-05 &nbsp;·&nbsp; Solo con fines informativos
+    Datos: TradingView Screener &nbsp;·&nbsp; 2026-08-07 &nbsp;·&nbsp; Solo con fines informativos
   </footer>
 </div>
 </body>
